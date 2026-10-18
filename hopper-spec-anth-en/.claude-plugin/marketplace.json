@@ -1,0 +1,16 @@
+{
+  "name": "hopper-spec-anth",
+  "owner": {
+    "name": "Jonathan Honorio",
+    "url": "https://github.com/jonathanpah"
+  },
+  "plugins": [
+    {
+      "name": "hopper-spec-anth",
+      "displayName": "hopper-spec-anth",
+      "source": "./",
+      "description": "Writes specs for any deliverable, with fixed guarantees of what to do and how decisions recorded by the running model."
+    }
+  ],
+  "description": "hopper-spec-anth"
+}

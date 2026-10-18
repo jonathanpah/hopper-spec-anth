@@ -1,0 +1,16 @@
+{
+  "name": "hopper-spec-anth",
+  "owner": {
+    "name": "Jonathan Honorio",
+    "url": "https://github.com/jonathanpah"
+  },
+  "plugins": [
+    {
+      "name": "hopper-spec-anth",
+      "displayName": "hopper-spec-anth",
+      "source": "./",
+      "description": "Escreve specs de qualquer entrega, com garantias fixas do que fazer e decisões de como registradas pelo modelo em uso."
+    }
+  ],
+  "description": "hopper-spec-anth"
+}

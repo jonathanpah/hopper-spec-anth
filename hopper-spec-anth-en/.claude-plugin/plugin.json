@@ -1,0 +1,13 @@
+{
+  "name": "hopper-spec-anth",
+  "version": "0.1.0",
+  "description": "Writes specs for any deliverable with fixed guarantees of what to do; the running model decides and records how to do it, using the most current practice.",
+  "author": {
+    "name": "Jonathan Honorio",
+    "url": "https://github.com/jonathanpah"
+  },
+  "homepage": "https://github.com/jonathanpah/hopper-spec-anth",
+  "repository": "https://github.com/jonathanpah/hopper-spec-anth",
+  "license": "MIT",
+  "displayName": "hopper-spec-anth"
+}
