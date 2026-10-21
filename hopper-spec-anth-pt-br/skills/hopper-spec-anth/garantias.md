@@ -46,7 +46,7 @@ Cada garantia traz o motivo que a sustenta. Uma garantia entra ou sai desta list
 
 ## G06. Bloqueio e limites
 
-**Garantia.** Cada requisito pode ficar "bloqueado", com motivo, evidência e o modo de reproduzir. Bloquear não é falha. Contornar o verificador é. As tentativas por falha, por unidade e por execução têm limite finito, definido na spec. Sem progresso, o executor para aquela parte e segue nas partes independentes. Uma verificação que passava e agora falha é regressão até prova em contrário.
+**Garantia.** Cada requisito pode ficar "bloqueado", com motivo, evidência e o modo de reproduzir. Bloquear não é falha. Contornar o verificador é. As tentativas por falha, por unidade e por execução têm limite finito, definido na spec. As passadas de revisão por etapa também têm limite finito, definido na spec. Sem progresso, o executor para aquela parte e segue nas partes independentes. Uma verificação que passava e agora falha é regressão até prova em contrário.
 
 **Motivo.** Sem saída honesta e sem limite, o executor contorna o verificador ou repete tentativas sem fim.
 
@@ -70,7 +70,7 @@ Cada garantia traz o motivo que a sustenta. Uma garantia entra ou sai desta list
 
 ## G09. Revisão independente
 
-**Garantia.** No fim de cada etapa, revisores sem o contexto de quem executou recebem só os critérios, a evidência bruta e a mudança, e nunca o resumo do executor. Eles apontam só falhas de requisito e de correção. A revisão é triagem, e o verificador continua sendo quem decide o pronto. Um erro mecânico que se repete vira verificação automática.
+**Garantia.** No fim de cada etapa, revisores sem o contexto de quem executou recebem só os critérios, a evidência bruta e a mudança, e nunca o resumo do executor. Eles apontam só falhas de requisito e de correção. Antes da revisão, 1 levantamento completo da parte afetada junta os defeitos em 1 lista. Cada passada olha só a mudança desde a passada anterior. Um achado de antes da etapa, ou fora do escopo dela, vira pendência registrada e não reabre a etapa. A revisão é triagem, e o verificador continua sendo quem decide o pronto. Um erro mecânico que se repete vira verificação automática.
 
 **Motivo.** Quem fez o trabalho, e quem leu o resumo dele, tende a ver o que espera.
 
