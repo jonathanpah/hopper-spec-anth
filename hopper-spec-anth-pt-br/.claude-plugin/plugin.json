@@ -1,6 +1,6 @@
 {
   "name": "hopper-spec-anth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Escreve specs de qualquer entrega com garantias fixas do que fazer; o modelo em uso decide e registra como fazer, pela prática mais atual.",
   "author": {
     "name": "Jonathan Honorio",

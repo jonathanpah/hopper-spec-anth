@@ -1,6 +1,6 @@
 {
   "name": "hopper-spec-anth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Writes specs for any deliverable with fixed guarantees of what to do; the running model decides and records how to do it, using the most current practice.",
   "author": {
     "name": "Jonathan Honorio",
