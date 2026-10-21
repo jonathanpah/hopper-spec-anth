@@ -46,7 +46,7 @@ Each guarantee states the reason behind it. A guarantee enters or leaves this li
 
 ## G06. Blocking and limits
 
-**Guarantee.** Each requirement can be "blocked", with a reason, evidence, and a way to reproduce. Blocking is not a failure. Working around the verifier is. Attempts per failure, per unit, and per run have a finite limit, set in the spec. Without progress, the executor stops that part and moves on to independent parts. A check that used to pass and now fails is a regression until proven otherwise.
+**Guarantee.** Each requirement can be "blocked", with a reason, evidence, and a way to reproduce. Blocking is not a failure. Working around the verifier is. Attempts per failure, per unit, and per run have a finite limit, set in the spec. Review passes per stage also have a finite limit, set in the spec. Without progress, the executor stops that part and moves on to independent parts. A check that used to pass and now fails is a regression until proven otherwise.
 
 **Reason.** Without an honest exit and without limits, the executor works around the verifier or retries endlessly.
 
@@ -70,7 +70,7 @@ Each guarantee states the reason behind it. A guarantee enters or leaves this li
 
 ## G09. Independent review
 
-**Guarantee.** At the end of each stage, reviewers without the executor's context receive only the criteria, the raw evidence, and the change, never the executor's summary. They report only requirement and correctness failures. Review is triage, and the verifier still decides what is done. A mechanical error that repeats becomes an automatic check.
+**Guarantee.** At the end of each stage, reviewers without the executor's context receive only the criteria, the raw evidence, and the change, never the executor's summary. They report only requirement and correctness failures. Before the review, a single complete survey of the affected part gathers the defects into a single list. Each pass looks only at the change since the previous pass. A finding from before the stage, or outside its scope, becomes a recorded pending item and does not reopen the stage. Review is triage, and the verifier still decides what is done. A mechanical error that repeats becomes an automatic check.
 
 **Reason.** Whoever did the work, and whoever read their summary, tends to see what they expect.
 
