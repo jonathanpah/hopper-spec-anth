@@ -36,13 +36,13 @@ Each guarantee states the reason behind it. A guarantee enters or leaves this li
 
 **Proof.** Each verifier states the source of its expectation, and the failure without the change is recorded.
 
-## G05. Proof recorded after the last change
+## G05. Proof recorded before and after integrating
 
-**Guarantee.** What counts is the record of the verifiers' run, all run together after the last change, not the executor's report. What did not run is "blocked", never "passed". A check that checked nothing is a failure. A result that fluctuates is repeated until it shows stability.
+**Guarantee.** What counts is the record of the verifiers' run, not the executor's report. Before a change is integrated, the verifiers it can affect run, selected by a map defined in the spec. Without a map, all of them run. After integrating, all verifiers run together, and the executor keeps working while they run. A failure in this full run suspends new integrations until the culprit change is fixed or reverted. A failure the map did not predict updates the map, with a record. The delivery and actions that are costly or impossible to undo (G10), such as publishing, start only from a version in which all verifiers passed together after the last change. What did not run is "blocked", never "passed". A check that checked nothing is a failure. A result that fluctuates is repeated until it shows stability.
 
-**Reason.** Completion reports without a run and empty checks are the most common forms of false completion.
+**Reason.** Completion reports without a run and empty checks are the most common forms of false completion. Running all verifiers before each integration leaves the executor idle, waiting. Selecting by the map before and the full run after keep the work moving and find the failure before any action that cannot be undone.
 
-**Proof.** The spec says where the record is kept and how it shows how many checks ran.
+**Proof.** The spec says where the record is kept, how it shows how many checks ran, which map selects the verifiers before integrating, and how a failure in the full run suspends the following integrations.
 
 ## G06. Blocking and limits
 

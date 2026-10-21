@@ -36,13 +36,13 @@ Cada garantia traz o motivo que a sustenta. Uma garantia entra ou sai desta list
 
 **Prova.** Cada verificador indica a fonte da expectativa, e a falha sem a mudança fica registrada.
 
-## G05. Prova registrada depois da última mudança
+## G05. Prova registrada antes e depois de integrar
 
-**Garantia.** Vale o registro da execução dos verificadores, rodados juntos depois da última mudança, e não o relato do executor. O que não rodou é "bloqueado", e nunca "passou". Uma verificação que não verificou nada é falha. Um resultado que oscila é repetido até mostrar estabilidade.
+**Garantia.** Vale o registro da execução dos verificadores, e não o relato do executor. Antes de integrar uma mudança, rodam os verificadores que ela pode afetar, escolhidos por um mapa definido na spec. Sem mapa, rodam todos. Depois de integrar, todos os verificadores rodam juntos, e o executor segue o trabalho enquanto eles rodam. Uma falha nessa rodada completa suspende novas integrações até a mudança culpada ser corrigida ou desfeita. Uma falha que o mapa não previu atualiza o mapa, com registro. A entrega e as ações caras ou impossíveis de desfazer (G10), como publicar, só partem de uma versão em que todos os verificadores passaram juntos depois da última mudança. O que não rodou é "bloqueado", e nunca "passou". Uma verificação que não verificou nada é falha. Um resultado que oscila é repetido até mostrar estabilidade.
 
-**Motivo.** Relatos de conclusão sem execução e verificações vazias são as formas mais comuns de falso pronto.
+**Motivo.** Relatos de conclusão sem execução e verificações vazias são as formas mais comuns de falso pronto. Rodar todos os verificadores antes de cada integração deixa o executor parado à espera. A escolha pelo mapa antes e a rodada completa depois mantêm o trabalho andando e acham a falha antes de qualquer ação sem volta.
 
-**Prova.** A spec diz onde fica o registro e como ele mostra quantas verificações rodaram.
+**Prova.** A spec diz onde fica o registro, como ele mostra quantas verificações rodaram, qual mapa escolhe os verificadores antes de integrar e como uma falha da rodada completa suspende as integrações seguintes.
 
 ## G06. Bloqueio e limites
 
