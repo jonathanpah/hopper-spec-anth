@@ -2,7 +2,7 @@
 type: regex
 target:
   source: file
-  path: spec.md
+  path: docs/product-spec.md
 pattern: "pending confirmation"
 flags: i
 ---

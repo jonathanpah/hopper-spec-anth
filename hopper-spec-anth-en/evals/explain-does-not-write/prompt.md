@@ -1,6 +1,6 @@
 ---
 description: A request for an explanation does not produce a spec.
-expected_outcome: Explains the split between what and how without saving files.
+expected_outcome: Explains the 2 documents the skill writes, without writing files.
 tags: [with-write]
 runs: 3
 max_turns: 10

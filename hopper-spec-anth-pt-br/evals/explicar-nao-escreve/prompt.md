@@ -1,6 +1,6 @@
 ---
 description: Pedido de explicação não gera spec.
-expected_outcome: Explica a separação entre o que e como sem gravar arquivos.
+expected_outcome: Explica os 2 documentos que a skill escreve, sem gravar arquivos.
 tags: [com-escrita]
 runs: 3
 max_turns: 10

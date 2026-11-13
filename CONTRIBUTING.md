@@ -8,17 +8,18 @@ For suspected vulnerabilities, follow the [Security Policy](SECURITY.md) and rep
 
 Use a bug report for a reproducible failure and a proposal for a specific change. Use [Discussions](https://github.com/jonathanpah/hopper-spec-anth/discussions) for questions or early ideas. Search existing issues before opening another report about the same behavior.
 
-For changes to the steps or guarantees, explain the current rule, the problem it creates, the desired behavior, evidence, and tradeoffs. A proposal is not approval to change the skill. Small documentation corrections can go directly to a pull request.
+For changes to the steps, the templates, or the body, explain the current rule, the problem it creates, the desired behavior, evidence, and tradeoffs. A proposal is not approval to change the skill. Small documentation corrections can go directly to a pull request.
 
 ## Preserve the design
 
-- The skill states **what** the spec guarantees. **How** is decided by the model running the skill and recorded in each spec. Keep tool names, products, versions, formats, and numbers, such as attempts, repetitions, and unit size, out of the skill.
-- Write each guarantee as a checkable property, with a reason and a proof. A mechanism is a how decision.
-- A guarantee enters or leaves only on execution evidence, for example records that show the failure it prevents, or that show it no longer has an effect.
-- Keep the skill independent of any project. Examples stay generic and short, so the model does not copy a ready-made solution.
-- Preserve explicit invocation, writing without executing, questions with a recommended answer, and the clean-context reader check, unless the maintainer approves a change.
-- Keep the plugin self-contained. `SKILL.md` and the guarantees must not depend on a separate `AGENTS.md` or this guide.
-- Update both languages together. Specs copy the guarantees unchanged, so keep the identifiers G01 to G15 and their headings stable.
+- The execution spec body, in `execution-body.md` and `corpo-da-execucao.md`, goes into every spec unchanged. It changes only by the maintainer's decision, in both languages together, with the same line structure. After changing the body, run the body grader generator in `evals/` again.
+- The body has only 1 slot, the project name, in section 0. The `body.sh` or `corpo.sh` script inserts and checks the body. The skill never retypes the body.
+- The templates fix the structure of the 2 documents. The content comes from each project. A project's tools, versions, and numbers stay out of the skill.
+- What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation". Keep this rule.
+- Keep the skill independent of any project. Examples come from fictional apps and stay short, so the model does not copy a ready-made solution.
+- Preserve explicit invocation, writing without executing, questions in 1 message with the options in plain language, the checklist, and the reader without context, unless the maintainer approves a change.
+- Keep the plugin self-contained. `SKILL.md` and the reference files must not depend on a separate `AGENTS.md` or this guide.
+- Update both languages together.
 - Distinguish observed behavior from documentation claims, assumptions, and proposed behavior. Do not claim performance or cost improvements without comparable measurements.
 - Use plain language in English and Portuguese. Put explanations in visible documentation, without hidden comments.
 
@@ -36,7 +37,7 @@ A pull request proposes a change; it changes this repository only when the maint
 
 Check that the changed instructions remain coherent, links resolve, and YAML and JSON parse. Run `claude plugin validate --strict` on the changed language folder. For a translation or wording change, compare the meaning and obligations before and after.
 
-For changes to the steps or guarantees, run the affected cases in `evals/` and record the observable result. Useful cases include a request for an explanation, which must not produce a spec, and specs from different domains, such as software and an event.
+For changes to the steps, the templates, or the body, run the affected cases in `evals/` and record the observable result. The cases include a request for an explanation and a request outside the scope, which must not produce a file, and the 2 specs of a fictional app, with the whole body checked.
 
 For a compatibility claim, identify the Claude Code version (CLI or app), the operating system, the model and effort, what you observed, and limitations. Proving that the skill is recognized does not prove the quality of the specs.
 

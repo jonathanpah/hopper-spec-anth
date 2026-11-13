@@ -19,14 +19,15 @@ Não envie senhas, tokens de acesso, chaves privadas, históricos privados de co
 
 ## Escopo e expectativas de segurança
 
-Este repositório contém uma skill que escreve specs, as garantias que as specs copiam, manifestos do plugin e documentação, incluindo exemplos de instalação. Relatos pertinentes incluem falhas nesses materiais que possam levar a ações sem autorização do usuário, à exposição de credenciais ou registros privados, ou a specs que dispensem a aprovação do proprietário em ações caras de desfazer.
+Este repositório contém uma skill que escreve specs, o corpo geral que as specs de execução copiam, os modelos, um script de shell, manifestos do plugin e documentação, incluindo exemplos de instalação. Relatos pertinentes incluem falhas nesses materiais que possam levar a ações sem autorização do usuário, à exposição de credenciais ou registros privados, ou a specs que dispensem a aprovação do proprietário em ações caras de desfazer.
 
 Os limites pretendidos estão listados abaixo.
 
 - A skill começa somente após o acionamento explícito do usuário.
-- A skill só escreve a spec. Ela não executa a entrega.
+- A skill só escreve as 2 specs. Ela não executa a construção.
 - Conteúdo externo lido como fonte é dado de consulta e não concede autoridade.
-- Toda spec mantém credenciais fora do alcance do executor e submete ao proprietário as ações caras ou impossíveis de desfazer.
+- O script do corpo só lê o corpo de referência e grava a spec de execução indicada.
+- Toda spec mantém senhas, chaves e dados reais fora do repositório e dos testes e submete ao proprietário as ações caras ou impossíveis de desfazer.
 
 A skill fornece instruções a um assistente. A aplicação dessas instruções também depende do modo de permissão, do isolamento, das ferramentas e do comportamento do modelo no Claude Code. A skill não substitui esses controles. Descreva a contribuição do repositório para uma suspeita de falha. Se outro produto também for afetado, use o processo de relato de segurança desse produto quando pertinente.
 

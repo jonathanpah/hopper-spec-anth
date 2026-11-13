@@ -1,7 +1,7 @@
 # Document index / Índice documental
 
-- [English](hopper-spec-anth-en/index.md): skill, guarantees, installation, use, and supporting documentation.
-- [Português (Brasil)](hopper-spec-anth-pt-br/index.md): skill, garantias, instalação, uso e documentação de apoio.
+- [English](hopper-spec-anth-en/index.md): skill, execution spec body, templates, installation, use, and supporting documentation.
+- [Português (Brasil)](hopper-spec-anth-pt-br/index.md): skill, corpo da spec de execução, modelos, instalação, uso e documentação de apoio.
 - [README](README.md): language selection / escolha do idioma.
 - [Contributing](CONTRIBUTING.md): contribution and release process.
 - [Security Policy](SECURITY.md): private vulnerability reporting.

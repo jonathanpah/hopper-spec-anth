@@ -2,7 +2,7 @@
 type: regex
 target:
   source: file
-  path: spec.md
+  path: docs/spec-do-produto.md
 pattern: "pendente de confirma[çc][ãa]o"
 flags: i
 ---

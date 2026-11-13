@@ -8,17 +8,18 @@ Para suspeitas de vulnerabilidade, siga a [Política de Segurança](SECURITY.md)
 
 Use um relato de bug para uma falha reproduzível e uma proposta para uma alteração específica. Use [Discussions](https://github.com/jonathanpah/hopper-spec-anth/discussions) para dúvidas ou ideias iniciais. Pesquise as issues existentes antes de abrir outro relato sobre o mesmo comportamento.
 
-Para mudanças nos passos ou nas garantias, explique a regra atual, o problema que ela causa, o comportamento desejado, as evidências e as consequências das alternativas. Uma proposta não é aprovação para alterar a skill. Pequenas correções documentais podem ir diretamente para um pull request.
+Para mudanças nos passos, nos modelos ou no corpo, explique a regra atual, o problema que ela causa, o comportamento desejado, as evidências e as consequências das alternativas. Uma proposta não é aprovação para alterar a skill. Pequenas correções documentais podem ir diretamente para um pull request.
 
 ## Preserve o desenho da skill
 
-- A skill diz **o que** a spec garante. O **como** é decisão do modelo que roda a skill, registrada em cada spec. Mantenha fora da skill nomes de ferramentas, produtos, versões, formatos e números, como tentativas, repetições e tamanho das unidades.
-- Escreva cada garantia como uma propriedade verificável, com motivo e prova. Um mecanismo é uma decisão de como.
-- Uma garantia entra ou sai só com evidência de execução, por exemplo registros que mostram a falha que ela evita, ou que mostram que ela deixou de ter efeito.
-- Mantenha a skill independente de projetos. Exemplos ficam genéricos e curtos, para que o modelo não copie uma solução pronta.
-- Preserve o acionamento explícito, a escrita sem execução, as perguntas com resposta recomendada e a conferência por leitor de contexto limpo, salvo aprovação de mudança pelo mantenedor.
-- Mantenha o plugin completo por si só. O `SKILL.md` e as garantias não devem depender de um `AGENTS.md` separado nem deste guia.
-- Atualize os 2 idiomas juntos. As specs copiam as garantias sem mudança. Por isso, mantenha estáveis os identificadores G01 a G15 e os títulos.
+- O corpo da spec de execução, em `corpo-da-execucao.md` e `execution-body.md`, entra em toda spec sem mudança. Ele muda só por decisão do mantenedor, nos 2 idiomas juntos, com a mesma estrutura de linhas. Depois de mudar o corpo, rode de novo o gerador do avaliador do corpo em `evals/`.
+- O corpo tem 1 lacuna só, o nome do projeto, na seção 0. O script `corpo.sh` ou `body.sh` insere e confere o corpo. A skill nunca redigita o corpo.
+- Os modelos fixam a estrutura dos 2 documentos. O conteúdo vem de cada projeto. Ferramentas, versões e números de um projeto ficam fora da skill.
+- O que a skill não sabe vira pergunta ou fica marcado "a medir", "a construir" ou "pendente de confirmação". Mantenha essa regra.
+- Mantenha a skill independente de projetos. Os exemplos são de apps fictícios, curtos, para que o modelo não copie uma solução pronta.
+- Preserve o acionamento explícito, a escrita sem execução, as perguntas em 1 mensagem com as opções em linguagem comum, a lista de conferência e o leitor sem contexto, salvo aprovação de mudança pelo mantenedor.
+- Mantenha o plugin completo por si só. O `SKILL.md` e os arquivos de referência não devem depender de um `AGENTS.md` separado nem deste guia.
+- Atualize os 2 idiomas juntos.
 - Diferencie comportamento observado de afirmações da documentação, suposições e comportamentos propostos. Não alegue melhorias de desempenho ou custo sem medições comparáveis.
 - Use linguagem clara em português e em inglês. Coloque as explicações na documentação visível, sem comentários ocultos.
 
@@ -36,7 +37,7 @@ Um pull request propõe uma mudança. Ele altera este repositório só quando o 
 
 Confira se as instruções alteradas continuam coerentes, se os links funcionam e se o YAML e o JSON têm sintaxe válida. Execute `claude plugin validate --strict` na pasta de idioma alterada. Para uma tradução ou mudança de redação, compare o significado e as obrigações antes e depois.
 
-Para mudanças nos passos ou nas garantias, rode os casos de `evals/` afetados e registre o resultado observável. Casos úteis incluem um pedido de explicação, que não deve gerar spec, e specs de domínios diferentes, como software e um evento.
+Para mudanças nos passos, nos modelos ou no corpo, rode os casos de `evals/` afetados e registre o resultado observável. Os casos incluem um pedido de explicação e um pedido fora do alcance, que não devem gerar arquivo, e as 2 specs de um app fictício, com o corpo conferido por inteiro.
 
 Para alegar compatibilidade, identifique a versão do Claude Code (CLI ou aplicativo), o sistema operacional, o modelo e o esforço, o que você observou e as limitações. Comprovar o reconhecimento da skill não comprova a qualidade das specs.
 

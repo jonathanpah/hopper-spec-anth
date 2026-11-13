@@ -2,44 +2,51 @@
 
 **English** | [Português (Brasil)](../hopper-spec-anth-pt-br/README.md)
 
-A Claude Code skill that writes the spec for any deliverable, such as software, a document, an event, or a process. The spec is enough for another session, person, or team to carry out the deliverable from start to finish without coming back with questions.
+A Claude Code skill that writes the 2 specs for a software product that AI agents build and prove with automated tests, such as an app, a site, a service, or a command-line tool.
 
-## The central idea
+## The 2 documents
 
-The skill separates **what** to do from **how** to do it.
+- **Product spec.** What the product does. It holds the objective, the owner's decisions, the glossary, the numbered requirements, each with what has to be true and how it is checked, what must never happen, what stays out, the how decisions, and the risks.
+- **Execution spec.** How the work is carried out and proven. It holds the general body, with sections 0 to 14, unchanged, and the project annex, with sections A1 to A10.
 
-- **What** is fixed in the skill. There are 15 guarantees every spec meets, for example "the executor does not decide what is done" and "the executor does not change the criteria". Each guarantee is a checkable property and states the reason behind it.
-- **How** belongs to the model running the skill. Tools, versions, formats, and numbers are chosen at writing time, using the most current practice, after checking the official documentation and the installed environment. Each choice is recorded in the spec, with alternatives, dated sources, reason, and proof.
+The general body applies to any project. It defines the change classes and the proof for each, when each proof runs, what to do with each failure, what a mission looks like, review, roles, and measures. It goes into each spec whole and identical, assembled by a script, and the skill checks the copy before delivering.
 
-As a result, a newer model or a new tool improves the specs without requiring a change to the skill. How decisions stay fixed during execution and are reviewed only between stages.
+The annex is written for each project. It covers the documents, the platforms and screens, the classes by path, the machines and ceilings, delivery, accounts and secrets, the AI models for each role, the files with a checked sum, the starting measures, and what is left to build. What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation".
 
-The plugin has 2 content files.
+## Scope
 
-- The [SKILL.md](skills/hopper-spec-anth/SKILL.md), with the 6 writing steps.
-- The [guarantees](skills/hopper-spec-anth/guarantees.md), which every spec copies unchanged.
-
-See the [document index](index.md) or read [how to contribute](../CONTRIBUTING.md).
-
-This folder contains the English version. The commands below install this version, with the same `hopper-spec-anth` name used in Portuguese.
+The skill serves a new software product and a software project that does not have the 2 specs yet. It does not write a spec for a document, an event, a process, or any other deliverable that is not software. In a project that already has the 2 specs, a new function enters through section 6 of the body, and a rule change through section 14.
 
 ## The steps
 
-1. **Scope** the deliverable, the owner, the executor, and the spec's destination.
-2. **Read the sources** that exist and the current external facts.
-3. **Ask the owner** only what the sources do not answer, with numbered questions and a recommended answer for each.
-4. **Write** the spec with the required content, including the guarantees and the how decisions.
-5. **Check** the spec against fixed criteria and with a clean-context reader.
-6. **Deliver** the spec at its destination, with the open items.
+1. **Scope** the product, the owner, the platforms, and the destination.
+2. **Read** the project, the environment, the body, and the current official documentation.
+3. **Ask** the owner only the essentials, in 1 message, with the options explained in plain language and a recommendation for each.
+4. **Decide the how**, with dated sources.
+5. **Write** the 2 documents, with the body inserted by the script.
+6. **Check** the 2 documents with the checklist and with a reader without context.
+7. **Deliver** the paths, the pending items, and what was left unverified.
 
-The skill only writes. Execution starts later, at the owner's decision, in a new session that reads only the spec.
+The skill only writes. The 2 specs are born as drafts and take effect with the owner's approval. Building starts later, by the owner's decision.
+
+## Files
+
+- [SKILL.md](skills/hopper-spec-anth/SKILL.md): the 7 steps and the rules for all of them.
+- [execution-body.md](skills/hopper-spec-anth/execution-body.md): the general body of the execution spec.
+- [product-spec.md](skills/hopper-spec-anth/product-spec.md) and [annex.md](skills/hopper-spec-anth/annex.md): the templates of the 2 documents.
+- [questions.md](skills/hopper-spec-anth/questions.md): what to ask and how.
+- [checklist.md](skills/hopper-spec-anth/checklist.md): the checklist.
+- [scripts/body.sh](skills/hopper-spec-anth/scripts/body.sh): inserts and checks the body.
+
+See the [document index](index.md) or read [how to contribute](../CONTRIBUTING.md).
 
 ## Compatibility and limits
 
-The skill is made for Claude Code, in the CLI and the app, on macOS and Linux. It does not depend on a specific tool. The model uses whatever the session offers.
+The skill is made for Claude Code, in the CLI and the app, on macOS and Linux. The script uses only `sh`, `awk`, and `grep` and writes no temporary file. The 2 documents come out in the language of the installed package.
 
-The SKILL.md follows the [Agent Skills format](https://agentskills.io/specification) and sets `disable-model-invocation: true`. Claude does not invoke the skill on its own.
+The SKILL.md follows the [Agent Skills format](https://agentskills.io/specification) and has `disable-model-invocation: true`. Claude does not invoke the skill on its own.
 
-The quality of the how decisions depends on the session's model and effort. When they are below the highest available, the skill tells the user once and follows their choice. The skill makes no claim of measured cost savings.
+The quality of the requirements and how decisions depends on the session's model and effort. The skill does not claim measured cost savings.
 
 ## Installation
 
@@ -71,23 +78,23 @@ Installing through the CLI does not prove the plugin is in the app's catalog. In
 
 ### Verification
 
-Check name, version, and content with `claude plugin list` and `claude plugin details hopper-spec-anth@hopper-spec-anth`. The [`evals/`](evals/) folder contains the official suite cases. To repeat them, run in this folder `claude plugin eval . --tag without-write` and `claude plugin eval . --tag with-write --judge-model sonnet --allow-tools Write Edit Bash WebFetch`. The spec cases use Sonnet as the judge, because the default judge is unreliable on long files.
+Check name, version, and content with `claude plugin list` and `claude plugin details hopper-spec-anth@hopper-spec-anth`. The [`evals/`](evals/) folder contains the official suite cases. To repeat them, run in this folder `claude plugin eval . --tag without-write` and `claude plugin eval . --tag with-write --judge-model sonnet --allow-tools Write Edit Bash WebFetch`. The explanation and out-of-scope cases use Sonnet as the judge. The case of the 2 specs checks the files with text patterns, including the whole body, because model judges are unreliable on long files.
 
 ## Use
 
-Invoke `/hopper-spec-anth:hopper-spec-anth` and describe the deliverable. For example:
+Invoke `/hopper-spec-anth:hopper-spec-anth` and describe the product, as in this request.
 
-> Write the spec for the meeting-room booking app in this repository. Save it to docs/spec.md.
+> I want an app for my running club to schedule the week's training sessions, on the phone. Save the specs in docs/.
 
-Claude reads the sources, asks the missing questions, writes the spec, and reports the path and the open items. Explaining, reviewing, or editing the skill does not start the writing.
+Claude reads the project, asks the missing questions, writes the 2 documents, and reports the paths and the pending items. Explaining, reviewing, or editing the skill does not start the writing.
 
 ## Updates
 
-Check local changes and update the clone with `git pull --ff-only`. Then run `claude plugin marketplace update hopper-spec-anth` and `claude plugin update hopper-spec-anth@hopper-spec-anth`, and send `/reload-plugins` in open sessions. If you used upload in the app, update the account package too.
+Check local changes and update the clone with `git pull --ff-only`. Then run `claude plugin marketplace update hopper-spec-anth` and `claude plugin update hopper-spec-anth@hopper-spec-anth`, and send `/reload-plugins` in open sessions. If you used the app upload, also update the account's package.
 
-Specs already written do not change with an update. Each spec records the skill version that produced it and carries the guarantees that applied in that version.
+Specs already written do not change with the update. Each spec records in its header the version of the skill that wrote it. Version 1.0.0 is a new skill, with a different result, and does not convert specs written before it.
 
-To remove, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` and remove the account installation in the app, if one exists.
+To remove it, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` and remove the account installation in the app, if one exists.
 
 ## Contributing
 

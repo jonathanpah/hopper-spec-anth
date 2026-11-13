@@ -9,7 +9,7 @@
       "name": "hopper-spec-anth",
       "displayName": "hopper-spec-anth",
       "source": "./",
-      "description": "Escreve specs de qualquer entrega, com garantias fixas do que fazer e decisões de como registradas pelo modelo em uso."
+      "description": "Escreve a spec do produto e a spec de execução de um software feito por agentes de IA."
     }
   ],
   "description": "hopper-spec-anth"

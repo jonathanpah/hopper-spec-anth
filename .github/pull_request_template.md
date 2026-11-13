@@ -4,7 +4,7 @@ Explain the problem and what this change makes possible. Link the related issue 
 
 ## Changes
 
-Describe the changes a reviewer needs to understand. Identify any change to the skill steps or guarantees explicitly.
+Describe the changes a reviewer needs to understand. Identify any change to the skill steps, the templates, or the execution spec body explicitly.
 
 ## Verification
 

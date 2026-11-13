@@ -1,7 +1,7 @@
 {
   "name": "hopper-spec-anth",
-  "version": "0.2.0",
-  "description": "Writes specs for any deliverable with fixed guarantees of what to do; the running model decides and records how to do it, using the most current practice.",
+  "version": "1.0.0",
+  "description": "Writes the product spec and the execution spec for software built by AI agents and proven by tests, with the general body unchanged and the project annex.",
   "author": {
     "name": "Jonathan Honorio",
     "url": "https://github.com/jonathanpah"

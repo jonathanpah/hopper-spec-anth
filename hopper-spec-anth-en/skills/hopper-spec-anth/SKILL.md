@@ -1,104 +1,85 @@
 ---
 name: hopper-spec-anth
-description: Writes the spec for any deliverable, such as software, a document, an event, or a process, so that another session, person, or team can carry it out from start to finish without coming back with questions. The skill fixes what the spec guarantees, and the running model decides and records how to meet it, using the most current practice. Use when the user invokes this skill to write a spec.
-compatibility: Requires Claude Code, in the CLI or the app.
+description: Writes the 2 specs for a software product that AI agents build and prove with automated tests, such as an app, a site, a service, or a tool. The product spec says what it does. The execution spec carries the general body unchanged and the project annex. It serves a new product and a software project that does not have the 2 specs yet. It does not cover a document, an event, a process, or any other deliverable that is not software. Use when the user invokes this skill.
+compatibility: Requires Claude Code, in the CLI or the app, and a POSIX shell for the body script.
 disable-model-invocation: true
 ---
 
 # hopper-spec-anth
 
-This skill writes a **spec**, the document that is enough to carry out a deliverable from start to finish. It only writes. Execution happens later, in another session, by whoever the owner chooses, reading only the spec.
+This skill writes 2 documents for a software product that AI agents will build and prove with automated tests. It only writes. Building starts later, by the owner's decision.
 
-## What is fixed and what is yours
+- **Product spec.** What the product does. Follow [product-spec.md](product-spec.md).
+- **Execution spec.** How the work is carried out and proven. It is the general body from [execution-body.md](execution-body.md), unchanged, followed by the project annex, which you write by [annex.md](annex.md).
 
-The skill fixes **what** the spec guarantees. The guarantees are in `${CLAUDE_SKILL_DIR}/guarantees.md`. Read the whole file before step 1.
+The 2 documents come out in English, the language of this package. If the owner writes in another language, say that a Portuguese package exists and follow the owner's choice.
 
-**How** to meet each guarantee and each requirement is your decision, as the model running the skill. Choose the option that meets the "what" at the lowest maintenance cost, using native resources with active support. Your memory has a training cutoff. So, before each choice, check the current official documentation and the installed environment.
+## Rules for every step
 
-Record each choice in the spec as a **how decision**, with these fields.
-
-- Serves: the requirement or guarantee.
-- Alternatives: the options considered.
-- Sources: what was consulted, with dates.
-- Reason: why this option won.
-- Proof: how to show that it works.
-
-Tools, products, versions, formats, and numbers, such as attempts, repetitions, and unit size, go into the spec as how decisions. The skill does not fix them.
-
-If this session's model or effort is below the highest available, tell the user once, at the start, and follow their choice.
-
-## Participants
-
-| Who | Role |
-| --- | --- |
-| Owner | Whoever invoked the skill, or whoever they name. Decides the deliverable and anything costly to undo |
-| Writer | You. Reads the sources, asks, decides the how, and writes the spec |
-| Executor | Whoever will carry out the spec: an agent, a person, or a team. Reads only the spec |
-| Verifier | What decides whether a requirement is done, such as a program, a measurement, or the owner's approval. Never the executor |
+- **Untouchable body.** The body goes in whole and identical, assembled by the `body.sh` script, never retyped. The only slot is `{{PROJECT}}`, in section 0, which receives the product name. Summaries, reordering, corrections, and "improvements" of the body stay out. The body only changes by an express decision of the owner, recorded in section 2 of the product spec with the owner's words and the date.
+- **Nothing invented.** Every fact has a source, which is the project, an answer from the owner, or an official page consulted, with the date. What is missing becomes a question or gets one of these 3 marks.
+  - **to be measured.** A number or time that only execution shows. Say when it is measured.
+  - **to be built.** A file, script, or list that does not exist yet. It goes into item A10 of the annex.
+  - **pending confirmation.** A recommended answer the owner has not confirmed yet.
+- **Documents that stand alone.** The 2 specs cite as a source only the project, the owner, and the pages consulted. The skill appears only in the header, with its name and version.
+- **Fictional examples.** The templates carry examples from a fictional app only to show the form. The content comes from the project.
 
 ## Steps
 
 ### 1. Scope
 
-Identify the deliverable, the owner, the expected executor, and the spec's destination, that is, where the file goes. Use the request, the context, and the project's instructions.
+Identify the product, the owner, the platforms, and the destination folder. The default destination is `docs/`, at the project root, with `docs/product-spec.md` and `docs/execution-spec.md`. Before writing over a file that already exists, read the file and confirm with the owner.
 
-If the request is to explain, review, or edit this skill, answer it and stop here, without writing a spec.
+Stop at this step, without writing a file, in 3 cases.
 
-Done when all 4 items are defined or are on the question list for step 3.
+- The request is to explain, review, or edit this skill. Answer the request.
+- The deliverable is not software, such as a document, an event, or a process. Say that the skill covers only software built by AI agents and proven by tests.
+- The project already has a product spec and an execution spec. Say that a new function enters through section 6 of its body, and a rule change through section 14.
 
-### 2. Read the sources
+Done when the product, the owner, the platforms, and the destination are defined or became questions for step 3.
 
-Read everything that exists about the deliverable, such as files, project documents, running systems, earlier decisions, and current external facts. Finding facts is your job, not the owner's.
+### 2. Read
 
-Done when every fact the spec will use has a noted source and what the sources do not answer is listed.
+Read what exists. Start with the request and the project, with code, tests, scripts, build configuration, project instructions such as `AGENTS.md` or `CLAUDE.md`, and documents. In the environment, check only what the product will use, such as the system, the installed tools, and the machines that can run the tests. Other projects and personal folders stay out of the reading. Read [execution-body.md](execution-body.md) in full, because the annex answers the body. Your memory has a cutoff date. So consult the current official documentation before each technical choice.
 
-### 3. Ask the owner
+Done when each fact the documents will use has a noted source and what the sources do not answer is listed.
 
-Ask only what the sources do not answer and that changes the executor's work or is costly to undo. Ask numbered questions, in plain text, each with a recommended answer, worded so that "yes" accepts it. A new round comes only if an answer opens a new question. Record each answer in the owner's words, with the date.
+### 3. Ask
 
-If the owner is unavailable or asks not to be consulted, adopt the recommended answer and mark each one as "pending confirmation" in the spec.
+Follow [questions.md](questions.md). Send 1 message only, with numbered questions, the options explained in plain language, and a recommendation for each. Before it, research only what changes a recommendation. The rest of the research waits for step 4.
 
-Done when every question that changes the executor's work has an answer or is marked pending.
+After the message, stop and wait for the answer. Steps 4 to 7 start only after it. This also holds in a session without interaction, such as `claude -p`, where the answer arrives when the session is resumed. Record each answer with the owner's words and the date.
 
-### 4. Write
+The owner is unavailable only when the request or the owner says so. In that case, or when the owner asks not to be consulted, adopt the recommendations without sending the message and mark each one as "pending confirmation".
 
-Write the spec in the owner's language. The document's form is yours. The content below is required.
+Done when the owner has answered and each answer is recorded, or when the request says the owner is unavailable and each adopted recommendation is marked as pending.
 
-1. Goal and the observable result that ends the work.
-2. Participants and what each one does.
-3. Numbered requirements, in the form of guarantee G02, with the expected behavior.
-4. Edge cases for each requirement.
-5. What must never happen.
-6. What is out of scope.
-7. A glossary with one name for each thing, used the same way throughout the spec.
-8. The owner's decisions, in their words, with the date.
-9. Work units and order, with dependencies. The first unit proves the environment (G11).
-10. Actions that go through the owner (G10).
-11. The guarantees from `guarantees.md`, copied unchanged, each with the how decision that meets it.
-12. The how decisions.
-13. Risks and how each is handled.
-14. Fixes after delivery (G12).
-15. Open items for the owner, when there are any.
-16. The name and version of this skill, read from `${CLAUDE_SKILL_DIR}/../../.claude-plugin/plugin.json`.
+### 4. Decide the how
 
-Match the rigor to the cost of being wrong. A small deliverable meets a guarantee with a simple mechanism, for example an acceptance checklist approved by the owner. A guarantee can be marked "does not apply", with the reason recorded. Guarantees G01 to G05 always apply.
+The technical choices are yours, such as architecture, language, folders, test tools, and the path of the internal delivery. Prefer the native resource, with active support and fewer dependencies. Each choice becomes a how decision in section 7 of the product spec, with dated sources. The folder decision defines the class paths in the annex.
 
-Done when all 16 items are in the spec.
+Done when each requirement and each annex section that depends on technique has the how decision that supports it.
 
-### 5. Check
+### 5. Write
 
-Check the whole spec against these criteria.
+1. Write the product spec by [product-spec.md](product-spec.md).
+2. Write the execution spec by [annex.md](annex.md), with the header, 1 line with only `{{BODY}}` in place of the body, and the annex.
+3. Replace the `{{BODY}}` line with the body, using the command below with the product name and the file path.
 
-- Every requirement has an identifier and a verifier, with no vague terms.
-- Every guarantee has a how decision and proof, or the reason for "does not apply".
-- Every how decision has dated sources.
-- Each thing has a single name.
-- Nothing depends on the writing conversation.
+```sh
+sh "${CLAUDE_SKILL_DIR}/scripts/body.sh" insert "<product name>" docs/execution-spec.md
+```
 
-Then ask a clean-context reader, with no access to this conversation, to read only the spec and list the questions they would have before carrying it out. Each question becomes a fix to the spec or a question for the owner.
+If the shell can only read, replace the `{{BODY}}` line with the content of [execution-body.md](execution-body.md) using the edit tool, with the name in place of `{{PROJECT}}` and no other change. The `check` of step 6 only reads and works in that case. After that, edit only the header and the annex.
 
-Done when all criteria pass and every reader question has a destination.
+Done when the 2 files are written and the body was inserted by the script.
 
-### 6. Deliver
+### 6. Check
 
-Save the spec at its destination. Tell the owner the file path, the open items, and what was not verified. Execution starts later, at the owner's decision, in a new session that reads only the spec.
+Run the 2 documents through the whole [checklist](checklist.md). Fix each item that fails and check again, until all pass.
+
+Done when all items pass and each doubt of the reader without context has a destination.
+
+### 7. Deliver
+
+Tell the owner, in plain language, the paths of the 2 files, the items pending confirmation, the "to be measured" and "to be built" items that need the owner's attention, and what was left unverified. The 2 specs are born as drafts and take effect with the owner's approval. Building starts later, by the owner's decision.

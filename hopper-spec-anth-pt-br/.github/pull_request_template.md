@@ -4,7 +4,7 @@ Explique o problema e o que esta alteração torna possível. Vincule a issue re
 
 ## Alterações
 
-Descreva as mudanças que o revisor precisa entender. Identifique explicitamente qualquer alteração nos passos ou nas garantias da skill.
+Descreva as mudanças que o revisor precisa entender. Identifique explicitamente qualquer alteração nos passos, nos modelos ou no corpo da spec de execução.
 
 ## Verificação
 
