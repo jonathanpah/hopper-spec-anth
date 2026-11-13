@@ -1,6 +1,8 @@
 # Product spec template
 
-The product spec says what the product does. How the work is carried out and proven goes in the execution spec. The structure below is fixed, with the sections, the headings, and the order. The content comes from the project and from the owner's answers. The examples come from the fictional app "Recipe Notebook" and show only the form.
+The product spec says what the product does. How the product is tested and fixed goes in the execution spec. The structure below is fixed, with the sections, the headings, and the order. The content comes from the project and from the owner's answers. The examples come from the fictional app "Recipe Notebook" and show only the form.
+
+Write short. Each requirement fits in 1 table row, each decision in 1 block, and no section repeats the execution spec.
 
 ## Contents
 
@@ -19,7 +21,7 @@ The product spec says what the product does. How the work is carried out and pro
 ```markdown
 # Product spec: <product name>
 
-Draft of <date>, written by the hopper-spec-anth <version> skill, for the owner's approval. It takes effect on the date of approval, recorded in <path of the decision record>, with no end date, until the owner changes it. This document says what the product does. How the work is carried out and proven goes in the [execution spec](execution-spec.md).
+Draft of <date>, written by the hopper-spec-anth <version> skill, for the owner's approval. It takes effect on the date of approval, recorded in <path of the decision record>, until the owner changes it. This document says what the product does. How the product is tested and fixed goes in the [execution spec](execution-spec.md).
 ```
 
 The skill version is in the `version` field of `${CLAUDE_SKILL_DIR}/../../.claude-plugin/plugin.json`.
@@ -33,7 +35,7 @@ The skill version is in the `version` field of `${CLAUDE_SKILL_DIR}/../../.claud
 | Date | Decision | Owner's words |
 | --- | --- | --- |
 | 11/13/2026 | Only the owner uses the 1st version, without a store | "yes" |
-| 11/13/2026 | Pending confirmation. Test version at each finished part | Recommendation adopted without an answer |
+| 11/13/2026 | Pending confirmation. Internal version on the owner's phone | Recommendation adopted without an answer |
 
 The decisions in the request and each answer from step 3 go here. A recommendation adopted without an answer carries "Pending confirmation" at the start of the decision.
 
@@ -43,7 +45,7 @@ The decisions in the request and each answer from step 3 go here. A recommendati
 | --- | --- |
 | Recipe | Text with a title, ingredients, and steps, stored by the app |
 
-Each thing has 1 name only, used the same way in the 2 specs, in the visible texts, in the tests, and in new code. In a product without screens, the glossary says which function counts as a screen, because the execution spec uses that term.
+Each thing has 1 name only, used the same way in the 2 specs, in the visible texts, in the tests, and in new code.
 
 ## 4. Requirements
 
@@ -53,7 +55,7 @@ Open the section with these rules, adapted to the project.
 - The tests carry the identifier in the name, such as `test_RE_01_createRecipe`.
 - Each requirement says what has to be true and how it is checked.
 
-Group the requirements by area, in numbered subsections, with this table.
+Group the requirements by area, in numbered subsections, with this table. Each area is a product function and becomes a subject in annex A3 of the execution spec.
 
 ### 4.1 Recipes
 
@@ -64,13 +66,13 @@ Group the requirements by area, in numbered subsections, with this table.
 Rules for each row.
 
 - **What has to be true.** 1 behavior, in active voice, observable from outside. A quantity has a number and a unit. A vague term, such as "fast", "easy", or "adequate", becomes a number or leaves.
-- **How it is checked.** The kind of test and the condition. Logic is checked by a test without a screen. A visual state, such as an empty screen, an error, the dark theme, and larger text, by image comparison. Gesture, focus, navigation, screen reading, accessibility, and the main use end to end, by a screen test. A requirement that depends on an outside service says whether the test uses a simulator or a test account.
+- **How it is checked.** The kind of test and the condition. Logic is checked by a test without a screen. What exists only on screen, such as gestures and navigation, by a screen test. A requirement that depends on an outside service says whether the test uses a simulator or a test account.
 - **Edge cases.** The limits and failures the test also covers.
 
 Mandatory requirements.
 
-- The main use, end to end, in requirements that the 1st slice covers.
-- Saving, reading, syncing, and security of data, when the product stores data, in an area of their own. Their code goes in the class D paths of the annex.
+- The main use, end to end.
+- Saving, reading, syncing, and security of data, when the product stores data, in an area of their own.
 - Each platform of section 1, when the rule changes by platform.
 
 ## 5. What must never happen
@@ -97,11 +99,11 @@ Each technical choice from step 4 has 1 block.
 Mandatory decisions.
 
 - Architecture and language.
-- Project and folders. Its paths form the classes in annex A3.
-- Tests for each layer, with the tools.
+- Project and folders.
+- Tests, with the tools and the commands to build, to run the sweep, and to run the data test package. It forms annex A2.
 - Data storage and file format, when the product stores data.
-- Internal delivery, with the path to the owner. It forms annex A5.
-- Secrets, with where each key lives and who reads it. It forms annex A6.
+- Internal version, with the path to the owner. It forms annex A4.
+- Secrets, with where each key lives and who reads it. It forms annex A5.
 
 A source without access at writing time stays as "writer's memory, unconfirmed", with 1 row in section 8.
 

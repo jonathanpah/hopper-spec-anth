@@ -14,21 +14,23 @@ The owner decides the product and may not be technical. Ask only the essentials 
 
 Skip each item that the request, the project, or an earlier answer already answers.
 
-1. **Main use.** What the person does in the product, from start to finish, in the most important task. The 1st building slice goes through it.
+1. **Main use.** What the person does in the product, from start to finish, in the most important task.
 2. **Who uses it.** Only the owner, a closed group, or the public. This defines distribution, accounts, and store review.
-3. **Where it works.** Phone, tablet, computer, browser, or another place. Each one is a platform, with its own tests.
+3. **Where it works.** Phone, tablet, computer, browser, or another place. Each one is a platform of the sweep.
 4. **Data.** What the product stores, whose it is, and where. If real data already exists, it stays out of the tests, and the question is only where it is.
 5. **Outside services and spending.** Login, payment, cloud, messaging, AI, or another paid service. Who creates each account and who pays.
-6. **Test version.** How the owner wants to receive the test version and how often.
+6. **Internal version.** Where the owner wants to receive the version that ships at the end of each round, such as on the owner's phone or at an address only the owner uses.
 7. **Sends without asking.** Distribution to outside people and publication to the public always go through the owner. Ask whether any routine send may go out without asking.
 8. **Where the tests run.** Which computers or servers exist for the tests, and at what hours each one is free.
-9. **AI model for each role.** The roles are orchestration, operation of tests and delivery, execution, review, and triage. Recommend from the models the environment offers today, with the exact name, and also ask when the default is asked again.
-10. **What stays out.** What does not enter the 1st version, to confirm.
+9. **Checks that are not product functions.** Such as the screen reader, color contrast, minimum touch size, and comparing the screen with reference images. Ask which ones enter the tests. Every product function always enters, and only the owner removes a subject.
+10. **AI model for each role.** The roles are orchestration, operation of tests and delivery, fixes, review of data fixes, and triage. The data reviewer comes from a different model than the one that wrote the fix. Recommend from the models the environment offers today, with the exact name, and also ask when the standard is asked again.
+11. **What stays out.** What does not enter the 1st version, to confirm.
 
 ## What never becomes a question
 
 - **Technical choice.** Language, architecture, folders, and tools are how decisions, yours, recorded in section 7 of the product spec.
-- **A number that only execution shows.** Test time, lanes per machine, and mission ceilings stay "to be measured".
+- **Execution decision.** The sweep cases, the classification of problems, the order of fixes, and the sessions belong to the orchestrator, by section 8 of the body.
+- **A number that only execution shows.** The duration of the sweep and of the data test package stays "to be measured".
 - **A fact you can look up.** Versions, prices, and rules of stores or services are checked in the official documentation.
 
 ## Example of form
@@ -40,8 +42,8 @@ Fictional app "Recipe Notebook". Use only the form.
 >    b) Your family, in a closed group. Each person needs an invitation.
 >    c) Anyone, through the store. It requires store review and a privacy policy.
 >
-> 2. How do you want to receive the test version?
->    a) On your phone, at each finished part (I recommend, because you use it early and find early what is missing).
->    b) On your phone, 1 time per week.
+> 2. Should the tests also check the screen reader, which reads the screen aloud for people who cannot see?
+>    a) No, only the app's functions (I recommend, because only you use the 1st version and the sweep stays shorter).
+>    b) Yes. The sweep gets bigger, and the app serves people who use a screen reader.
 >
 > Answer "yes" to accept all the recommendations, or give the question number and the option you want.

@@ -1,25 +1,27 @@
 ---
 name: hopper-spec-anth
-description: Writes the 2 specs for a software product that AI agents build and prove with automated tests, such as an app, a site, a service, or a tool. The product spec says what it does. The execution spec carries the general body unchanged and the project annex. It serves a new product and a software project that does not have the 2 specs yet. It does not cover a document, an event, a process, or any other deliverable that is not software. Use when the user invokes this skill.
+description: Writes the 2 specs for a software product that AI agents build, test, and fix, such as an app, a site, a service, or a tool. The product spec says what it does. The execution spec carries the general body unchanged, with the sweep-and-rounds model, and the project annex. It serves a new product and a software project that does not have the 2 specs yet or asks to rewrite them. It does not cover a document, an event, a process, or any other deliverable that is not software. Use when the user invokes this skill.
 compatibility: Requires Claude Code, in the CLI or the app, and a POSIX shell for the body script.
 disable-model-invocation: true
 ---
 
 # hopper-spec-anth
 
-This skill writes 2 documents for a software product that AI agents will build and prove with automated tests. It only writes. Building starts later, by the owner's decision.
+This skill writes 2 documents for a software product that AI agents will build, test, and fix. It only writes. The work starts later, by the owner's decision.
 
 - **Product spec.** What the product does. Follow [product-spec.md](product-spec.md).
-- **Execution spec.** How the work is carried out and proven. It is the general body from [execution-body.md](execution-body.md), unchanged, followed by the project annex, which you write by [annex.md](annex.md).
+- **Execution spec.** How the product is tested and fixed, by the sweep-and-rounds model. It is the general body from [execution-body.md](execution-body.md), unchanged, followed by the project annex, which you write by [annex.md](annex.md). In the model, a sweep of the whole product finds the problems, which are fixed by severity, 1 at a time, with only each fix tested.
 
 The 2 documents come out in English, the language of this package. If the owner writes in another language, say that a Portuguese package exists and follow the owner's choice.
 
 ## Rules for every step
 
 - **Untouchable body.** The body goes in whole and identical, assembled by the `body.sh` script, never retyped. The only slot is `{{PROJECT}}`, in section 0, which receives the product name. Summaries, reordering, corrections, and "improvements" of the body stay out. The body only changes by an express decision of the owner, recorded in section 2 of the product spec with the owner's words and the date.
+- **Every function in the tests.** Each requirement area of the product spec becomes a subject in annex A3, even when the owner's data does not show it in use yet. Only the owner removes a subject, and the removal is recorded with the owner's words.
+- **Short spec.** Each line carries a fact, a rule, or a decision of the project. The annex does not repeat the body, does not explain why the rules exist, and does not recap. The whole execution spec has up to 150 lines.
 - **Nothing invented.** Every fact has a source, which is the project, an answer from the owner, or an official page consulted, with the date. What is missing becomes a question or gets one of these 3 marks.
   - **to be measured.** A number or time that only execution shows. Say when it is measured.
-  - **to be built.** A file, script, or list that does not exist yet. It goes into item A10 of the annex.
+  - **to be built.** A file, command, script, or list that does not exist yet.
   - **pending confirmation.** A recommended answer the owner has not confirmed yet.
 - **Documents that stand alone.** The 2 specs cite as a source only the project, the owner, and the pages consulted. The skill appears only in the header, with its name and version.
 - **Fictional examples.** The templates carry examples from a fictional app only to show the form. The content comes from the project.
@@ -34,7 +36,7 @@ Stop at this step, without writing a file, in 3 cases.
 
 - The request is to explain, review, or edit this skill. Answer the request.
 - The deliverable is not software, such as a document, an event, or a process. Say that the skill covers only software built by AI agents and proven by tests.
-- The project already has a product spec and an execution spec. Say that a new function enters through section 6 of its body, and a rule change through section 14.
+- The project already has a product spec and an execution spec, and the request is not to rewrite them. Say that a new function enters through the product spec, and a rule change through section 11 of the body.
 
 Done when the product, the owner, the platforms, and the destination are defined or became questions for step 3.
 
@@ -56,7 +58,7 @@ Done when the owner has answered and each answer is recorded, or when the reques
 
 ### 4. Decide the how
 
-The technical choices are yours, such as architecture, language, folders, test tools, and the path of the internal delivery. Prefer the native resource, with active support and fewer dependencies. Each choice becomes a how decision in section 7 of the product spec, with dated sources. The folder decision defines the class paths in the annex.
+The technical choices are yours, such as architecture, language, folders, test tools, and the path of the internal version. Prefer the native resource, with active support and fewer dependencies. Each choice becomes a how decision in section 7 of the product spec, with dated sources. The test decision defines the commands in annex A2.
 
 Done when each requirement and each annex section that depends on technique has the how decision that supports it.
 
@@ -82,4 +84,4 @@ Done when all items pass and each doubt of the reader without context has a dest
 
 ### 7. Deliver
 
-Tell the owner, in plain language, the paths of the 2 files, the items pending confirmation, the "to be measured" and "to be built" items that need the owner's attention, and what was left unverified. The 2 specs are born as drafts and take effect with the owner's approval. Building starts later, by the owner's decision.
+Tell the owner, in plain language, the paths of the 2 files, the items pending confirmation, the "to be measured" and "to be built" items that need the owner's attention, and what was left unverified. The 2 specs are born as drafts and take effect with the owner's approval. The work starts later, by the owner's decision.

@@ -2,7 +2,7 @@
 
 - [README](README.md): the 2 documents, the scope, the steps, installation, use, and updates.
 - [Skill](skills/hopper-spec-anth/SKILL.md): the 7 writing steps and the rules for all of them.
-- [Execution spec body](skills/hopper-spec-anth/execution-body.md): sections 0 to 14, which every execution spec carries unchanged.
+- [Execution spec body](skills/hopper-spec-anth/execution-body.md): sections 0 to 11, with the sweep-and-rounds model, which every execution spec carries unchanged.
 - [Product spec template](skills/hopper-spec-anth/product-spec.md) and [annex template](skills/hopper-spec-anth/annex.md): the structure of the 2 documents.
 - [Questions](skills/hopper-spec-anth/questions.md) and [checklist](skills/hopper-spec-anth/checklist.md): how to ask the owner and what to check before delivering.
 - [Body script](skills/hopper-spec-anth/scripts/body.sh): inserts and checks the body in the execution spec.

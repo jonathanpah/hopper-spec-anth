@@ -1,25 +1,27 @@
 ---
 name: hopper-spec-anth
-description: Escreve as 2 specs de um produto de software que agentes de IA constroem e provam com testes automáticos, como app, site, serviço ou ferramenta. A spec do produto diz o que ele faz. A spec de execução leva o corpo geral sem mudança e o anexo do projeto. Serve a produto novo e a projeto de software que ainda não tem as 2 specs. Não cobre documento, evento, processo nem outra entrega que não seja software. Use quando o usuário acionar esta skill.
+description: Escreve as 2 specs de um produto de software que agentes de IA constroem, testam e corrigem, como app, site, serviço ou ferramenta. A spec do produto diz o que ele faz. A spec de execução leva o corpo geral sem mudança, com o modelo de vistoria e levas, e o anexo do projeto. Serve a produto novo e a projeto de software que ainda não tem as 2 specs ou pede para reescrevê-las. Não cobre documento, evento, processo nem outra entrega que não seja software. Use quando o usuário acionar esta skill.
 compatibility: Requer Claude Code, na CLI ou no aplicativo, e um shell POSIX para o script do corpo.
 disable-model-invocation: true
 ---
 
 # hopper-spec-anth
 
-Esta skill escreve 2 documentos para um produto de software que agentes de IA vão construir e provar com testes automáticos. Ela só escreve. A construção começa depois, por decisão do proprietário.
+Esta skill escreve 2 documentos para um produto de software que agentes de IA vão construir, testar e corrigir. Ela só escreve. O trabalho começa depois, por decisão do proprietário.
 
 - **Spec do produto.** O que o produto faz. Siga [spec-do-produto.md](spec-do-produto.md).
-- **Spec de execução.** Como o trabalho é executado e provado. É o corpo geral de [corpo-da-execucao.md](corpo-da-execucao.md), sem mudança, seguido do anexo do projeto, que você escreve por [anexo.md](anexo.md).
+- **Spec de execução.** Como o produto é testado e corrigido, pelo modelo de vistoria e levas. É o corpo geral de [corpo-da-execucao.md](corpo-da-execucao.md), sem mudança, seguido do anexo do projeto, que você escreve por [anexo.md](anexo.md). No modelo, uma vistoria do produto inteiro acha os problemas, que são corrigidos por gravidade, 1 por vez, com o teste só de cada correção.
 
 Os 2 documentos saem em português, o idioma deste pacote. Se o proprietário escrever em outro idioma, avise que existe o pacote em inglês e siga a escolha dele.
 
 ## Regras que valem em todos os passos
 
 - **Corpo intocável.** O corpo entra inteiro e igual, montado pelo script `corpo.sh`, nunca redigitado. A única lacuna é `{{PROJETO}}`, na seção 0, que recebe o nome do produto. Resumo, reordenação, correção e "melhoria" do corpo ficam de fora. O corpo só muda por decisão expressa do proprietário, registrada na seção 2 da spec do produto com as palavras dele e a data.
+- **Toda função nos testes.** Cada área de requisitos da spec do produto vira assunto no anexo A3, mesmo quando os dados do proprietário ainda não mostram uso. Só o proprietário tira um assunto, e a saída fica registrada com as palavras dele.
+- **Spec curta.** Cada linha traz um fato, uma regra ou uma decisão do projeto. O anexo não repete o corpo, não explica o porquê das regras e não recapitula. A spec de execução inteira tem até 150 linhas.
 - **Nada inventado.** Todo fato tem fonte, que é o projeto, uma resposta do proprietário ou uma página oficial consultada, com a data. O que falta vira pergunta ou recebe uma destas 3 marcas.
   - **a medir.** Número ou tempo que só a execução mostra. Diga quando ele é medido.
-  - **a construir.** Arquivo, script ou lista que ainda não existe. Ele entra no item A10 do anexo.
+  - **a construir.** Arquivo, comando, script ou lista que ainda não existe.
   - **pendente de confirmação.** Resposta recomendada que o proprietário ainda não confirmou.
 - **Documentos que valem sozinhos.** As 2 specs citam como fonte só o projeto, o proprietário e as páginas consultadas. A skill aparece só no cabeçalho, com o nome e a versão.
 - **Exemplos fictícios.** Os modelos trazem exemplos de um app fictício só para mostrar a forma. O conteúdo vem do projeto.
@@ -34,7 +36,7 @@ Pare neste passo, sem gravar arquivo, em 3 casos.
 
 - O pedido é explicar, revisar ou editar esta skill. Atenda o pedido.
 - A entrega não é software, como documento, evento ou processo. Diga que a skill cobre só software feito por agentes de IA e provado por testes.
-- O projeto já tem spec do produto e spec de execução. Diga que a função nova entra pela seção 6 do corpo dele, e a mudança de regra, pela seção 14.
+- O projeto já tem spec do produto e spec de execução, e o pedido não é reescrevê-las. Diga que a função nova entra pela spec do produto, e a mudança de regra, pela seção 11 do corpo.
 
 Pronto quando o produto, o proprietário, as plataformas e o destino estão definidos ou viraram pergunta do passo 3.
 
@@ -56,7 +58,7 @@ Pronto quando o proprietário respondeu e cada resposta está registrada, ou qua
 
 ### 4. Decidir o como
 
-As escolhas técnicas são suas, como arquitetura, linguagem, pastas, ferramentas de teste e o caminho da entrega interna. Prefira o recurso nativo, com suporte ativo e com menos dependências. Cada escolha vira uma decisão de como na seção 7 da spec do produto, com fontes datadas. A decisão das pastas define os caminhos das classes no anexo.
+As escolhas técnicas são suas, como arquitetura, linguagem, pastas, ferramentas de teste e o caminho da versão interna. Prefira o recurso nativo, com suporte ativo e com menos dependências. Cada escolha vira uma decisão de como na seção 7 da spec do produto, com fontes datadas. A decisão dos testes define os comandos do anexo A2.
 
 Pronto quando cada requisito e cada seção do anexo que depende de técnica têm a decisão de como que os sustenta.
 
@@ -82,4 +84,4 @@ Pronto quando todos os itens passam e cada dúvida do leitor sem contexto tem de
 
 ### 7. Entregar
 
-Informe ao proprietário, em linguagem comum, os caminhos dos 2 arquivos, as pendências de confirmação, os itens "a medir" e "a construir" que pedem atenção dele e o que ficou sem verificação. As 2 specs nascem como rascunho e passam a valer com a aprovação do proprietário. A construção começa depois, por decisão dele.
+Informe ao proprietário, em linguagem comum, os caminhos dos 2 arquivos, as pendências de confirmação, os itens "a medir" e "a construir" que pedem atenção dele e o que ficou sem verificação. As 2 specs nascem como rascunho e passam a valer com a aprovação do proprietário. O trabalho começa depois, por decisão dele.

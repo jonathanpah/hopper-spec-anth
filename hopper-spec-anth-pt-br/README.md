@@ -2,20 +2,20 @@
 
 [English](../hopper-spec-anth-en/README.md) | **Português (Brasil)**
 
-Uma skill do Claude Code que escreve as 2 specs de um produto de software que agentes de IA constroem e provam com testes automáticos, como app, site, serviço ou ferramenta de linha de comando.
+Uma skill do Claude Code que escreve as 2 specs de um produto de software que agentes de IA constroem, testam e corrigem, como app, site, serviço ou ferramenta de linha de comando.
 
 ## Os 2 documentos
 
 - **Spec do produto.** O que o produto faz. Traz o objetivo, as decisões do proprietário, o glossário, os requisitos numerados, cada um com o que tem de ser verdade e como se confere, o que nunca pode acontecer, o que fica fora, as decisões de como e os riscos.
-- **Spec de execução.** Como o trabalho é executado e provado. Traz o corpo geral, com as seções 0 a 14, sem mudança, e o anexo do projeto, com as seções A1 a A10.
+- **Spec de execução.** Como o produto é testado e corrigido. Traz o corpo geral, com as seções 0 a 11, sem mudança, e o anexo do projeto, com as seções A1 a A7.
 
-O corpo geral vale para qualquer projeto. Ele define as classes de mudança e a prova de cada uma, quando cada prova roda, o que fazer com cada falha, como é uma missão, a revisão, os papéis e as medidas. Ele entra em cada spec inteiro e igual, montado por script, e a skill confere a cópia antes de entregar.
+O corpo geral vale para qualquer projeto e traz o modelo de vistoria e levas. Uma vistoria larga e rasa passa pelo produto inteiro. Os problemas são classificados em grande, médio e pequeno e corrigidos nessa ordem, 1 por vez, com o teste só de cada correção, e uma nova vistoria confere cada leva. O corpo também define a revisão das correções de dados, a entrega no fim de cada leva, quem decide e o formato das mensagens ao proprietário. Ele entra em cada spec inteiro e igual, montado por script, e a skill confere a cópia antes de entregar.
 
-O anexo é escrito para cada projeto. Ele cobre os documentos, as plataformas e as telas, as classes por caminho, as máquinas e os tetos, a entrega, as contas e os segredos, os modelos de IA de cada papel, os arquivos com soma conferida, as medidas de partida e o que falta construir. O que a skill não sabe vira pergunta ou fica marcado "a medir", "a construir" ou "pendente de confirmação".
+O anexo é escrito para cada projeto. Ele cobre os documentos, as plataformas e as máquinas, os assuntos testados, a entrega, as contas e os segredos, os modelos de IA de cada papel, as sessões e os números de partida. Toda função da spec do produto vira assunto dos testes, e só o proprietário tira um assunto. A spec de execução inteira tem até 150 linhas. O que a skill não sabe vira pergunta ou fica marcado "a medir", "a construir" ou "pendente de confirmação".
 
 ## Alcance
 
-A skill serve a produto de software novo e a projeto de software que ainda não tem as 2 specs. Ela não escreve spec de documento, evento, processo ou outra entrega que não seja software. Em projeto que já tem as 2 specs, a função nova entra pela seção 6 do corpo, e a mudança de regra, pela seção 14.
+A skill serve a produto de software novo e a projeto de software que ainda não tem as 2 specs ou pede para reescrevê-las. Ela não escreve spec de documento, evento, processo ou outra entrega que não seja software. Em projeto que já tem as 2 specs, a função nova entra pela spec do produto, e a mudança de regra, pela seção 11 do corpo. Antes de gravar sobre uma spec que já existe, a skill confirma com o proprietário.
 
 ## Os passos
 
@@ -27,7 +27,7 @@ A skill serve a produto de software novo e a projeto de software que ainda não 
 6. **Conferir** os 2 documentos pela lista de conferência e por um leitor sem contexto.
 7. **Entregar** os caminhos, as pendências e o que ficou sem verificação.
 
-A skill só escreve. As 2 specs nascem como rascunho e passam a valer com a aprovação do proprietário. A construção começa depois, por decisão dele.
+A skill só escreve. As 2 specs nascem como rascunho e passam a valer com a aprovação do proprietário. O trabalho começa depois, por decisão dele.
 
 ## Arquivos
 
@@ -92,7 +92,7 @@ O Claude lê o projeto, faz as perguntas que faltam, escreve os 2 documentos e i
 
 Confira as alterações locais e atualize o clone com `git pull --ff-only`. Depois, execute `claude plugin marketplace update hopper-spec-anth` e `claude plugin update hopper-spec-anth@hopper-spec-anth`, e envie `/reload-plugins` nas sessões abertas. Se usou upload no aplicativo, atualize também o pacote da conta.
 
-Specs já escritas não mudam com a atualização. Cada spec registra no cabeçalho a versão da skill que a escreveu. A versão 1.0.0 é uma skill nova, com outro resultado, e não converte specs escritas antes dela.
+Specs já escritas não mudam com a atualização. Cada spec registra no cabeçalho a versão da skill que a escreveu. A versão 2.0.0 troca o modelo da spec de execução pelo de vistoria e levas e não converte specs escritas antes dela.
 
 Para remover, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` e remova a instalação da conta no aplicativo, se existir.
 

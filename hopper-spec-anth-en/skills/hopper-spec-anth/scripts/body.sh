@@ -6,7 +6,7 @@
 #     Replaces the {{BODY}} line of the file with the body from execution-body.md,
 #     with {{PROJECT}} filled in with the name. No other character changes.
 #   sh body.sh check "<project name>" <execution spec>
-#     Compares the body of the file, from the line "## 0. What this document is"
+#     Compares the body of the file, from the first line of the reference body
 #     to the line before the "# Annex" heading, with the reference body.
 #     Exits with 0 and "body identical" when they match; otherwise shows the differences.
 
@@ -74,7 +74,7 @@ case $action in
   check)
     PROJECT_NAME=$name awk -v SLOT="$slot" "$fill"'
       FNR == NR { ref[++nr] = fill($0); next }
-      inside == 0 && /^## 0\. What this document is$/ { inside = 1 }
+      inside == 0 && $0 == ref[1] { inside = 1 }
       inside == 1 && /^# Annex/ { inside = 2 }
       inside == 1 {
         if ($0 == "") { empty++; next }

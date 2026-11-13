@@ -2,9 +2,9 @@
 
 [English](hopper-spec-anth-en/README.md) | [Português (Brasil)](hopper-spec-anth-pt-br/README.md)
 
-A Claude Code skill that writes the 2 specs for a software product that AI agents build and prove with automated tests: the product spec, and the execution spec with the general body unchanged and the project annex.
+A Claude Code skill that writes the 2 specs for a software product that AI agents build, test, and fix: the product spec, and the execution spec with the general body unchanged, carrying the sweep-and-rounds model, and the project annex.
 
-Uma skill do Claude Code que escreve as 2 specs de um produto de software que agentes de IA constroem e provam com testes automáticos. A spec do produto e a spec de execução, com o corpo geral sem mudança e o anexo do projeto.
+Uma skill do Claude Code que escreve as 2 specs de um produto de software que agentes de IA constroem, testam e corrigem. A spec do produto e a spec de execução, com o corpo geral sem mudança, que traz o modelo de vistoria e levas, e o anexo do projeto.
 
 | Language / Idioma | Documentation / Documentação | Skill |
 | --- | --- | --- |

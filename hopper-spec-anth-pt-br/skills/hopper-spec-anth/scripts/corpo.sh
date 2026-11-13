@@ -6,7 +6,7 @@
 #     Troca a linha {{CORPO}} do arquivo pelo corpo de corpo-da-execucao.md,
 #     com {{PROJETO}} preenchido pelo nome. Nenhum outro caractere muda.
 #   sh corpo.sh conferir "<nome do projeto>" <spec de execução>
-#     Compara o corpo do arquivo, da linha "## 0. O que é este documento"
+#     Compara o corpo do arquivo, da 1ª linha do corpo de referência
 #     até a linha antes do título "# Anexo", com o corpo de referência.
 #     Sai com 0 e "corpo igual" quando são iguais; senão mostra as diferenças.
 
@@ -74,7 +74,7 @@ case $acao in
   conferir)
     PROJETO_NOME=$nome awk -v LACUNA="$lacuna" "$preencher"'
       FNR == NR { ref[++nr] = preencher($0); next }
-      dentro == 0 && /^## 0\. O que é este documento$/ { dentro = 1 }
+      dentro == 0 && $0 == ref[1] { dentro = 1 }
       dentro == 1 && /^# Anexo/ { dentro = 2 }
       dentro == 1 {
         if ($0 == "") { vazias++; next }

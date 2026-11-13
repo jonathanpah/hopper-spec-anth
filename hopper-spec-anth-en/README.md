@@ -2,20 +2,20 @@
 
 **English** | [Português (Brasil)](../hopper-spec-anth-pt-br/README.md)
 
-A Claude Code skill that writes the 2 specs for a software product that AI agents build and prove with automated tests, such as an app, a site, a service, or a command-line tool.
+A Claude Code skill that writes the 2 specs for a software product that AI agents build, test, and fix, such as an app, a site, a service, or a command-line tool.
 
 ## The 2 documents
 
 - **Product spec.** What the product does. It holds the objective, the owner's decisions, the glossary, the numbered requirements, each with what has to be true and how it is checked, what must never happen, what stays out, the how decisions, and the risks.
-- **Execution spec.** How the work is carried out and proven. It holds the general body, with sections 0 to 14, unchanged, and the project annex, with sections A1 to A10.
+- **Execution spec.** How the product is tested and fixed. It holds the general body, with sections 0 to 11, unchanged, and the project annex, with sections A1 to A7.
 
-The general body applies to any project. It defines the change classes and the proof for each, when each proof runs, what to do with each failure, what a mission looks like, review, roles, and measures. It goes into each spec whole and identical, assembled by a script, and the skill checks the copy before delivering.
+The general body applies to any project and carries the sweep-and-rounds model. A broad, shallow sweep goes through the whole product. The problems are classified as big, medium, and small and fixed in that order, 1 at a time, with only each fix tested, and a new sweep checks each round. The body also defines the review of data fixes, the delivery at the end of each round, who decides, and the format of messages to the owner. It goes into each spec whole and identical, assembled by a script, and the skill checks the copy before delivering.
 
-The annex is written for each project. It covers the documents, the platforms and screens, the classes by path, the machines and ceilings, delivery, accounts and secrets, the AI models for each role, the files with a checked sum, the starting measures, and what is left to build. What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation".
+The annex is written for each project. It covers the documents, the platforms and machines, the tested subjects, delivery, accounts and secrets, the AI models for each role, the sessions, and the starting numbers. Every product spec function becomes a test subject, and only the owner removes a subject. The whole execution spec has up to 150 lines. What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation".
 
 ## Scope
 
-The skill serves a new software product and a software project that does not have the 2 specs yet. It does not write a spec for a document, an event, a process, or any other deliverable that is not software. In a project that already has the 2 specs, a new function enters through section 6 of the body, and a rule change through section 14.
+The skill serves a new software product and a software project that does not have the 2 specs yet or asks to rewrite them. It does not write a spec for a document, an event, a process, or any other deliverable that is not software. In a project that already has the 2 specs, a new function enters through the product spec, and a rule change through section 11 of the body. Before writing over a spec that already exists, the skill confirms with the owner.
 
 ## The steps
 
@@ -27,7 +27,7 @@ The skill serves a new software product and a software project that does not hav
 6. **Check** the 2 documents with the checklist and with a reader without context.
 7. **Deliver** the paths, the pending items, and what was left unverified.
 
-The skill only writes. The 2 specs are born as drafts and take effect with the owner's approval. Building starts later, by the owner's decision.
+The skill only writes. The 2 specs are born as drafts and take effect with the owner's approval. The work starts later, by the owner's decision.
 
 ## Files
 
@@ -92,7 +92,7 @@ Claude reads the project, asks the missing questions, writes the 2 documents, an
 
 Check local changes and update the clone with `git pull --ff-only`. Then run `claude plugin marketplace update hopper-spec-anth` and `claude plugin update hopper-spec-anth@hopper-spec-anth`, and send `/reload-plugins` in open sessions. If you used the app upload, also update the account's package.
 
-Specs already written do not change with the update. Each spec records in its header the version of the skill that wrote it. Version 1.0.0 is a new skill, with a different result, and does not convert specs written before it.
+Specs already written do not change with the update. Each spec records in its header the version of the skill that wrote it. Version 2.0.0 replaces the execution spec model with the sweep-and-rounds model and does not convert specs written before it.
 
 To remove it, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` and remove the account installation in the app, if one exists.
 

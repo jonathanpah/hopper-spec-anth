@@ -2,7 +2,7 @@
 
 - [README](README.md): os 2 documentos, o alcance, os passos, a instalação, o uso e as atualizações.
 - [Skill](skills/hopper-spec-anth/SKILL.md): os 7 passos da escrita e as regras que valem em todos eles.
-- [Corpo da spec de execução](skills/hopper-spec-anth/corpo-da-execucao.md): as seções 0 a 14, que toda spec de execução leva sem mudança.
+- [Corpo da spec de execução](skills/hopper-spec-anth/corpo-da-execucao.md): as seções 0 a 11, com o modelo de vistoria e levas, que toda spec de execução leva sem mudança.
 - [Modelo da spec do produto](skills/hopper-spec-anth/spec-do-produto.md) e [modelo do anexo](skills/hopper-spec-anth/anexo.md): a estrutura dos 2 documentos.
 - [Perguntas](skills/hopper-spec-anth/perguntas.md) e [lista de conferência](skills/hopper-spec-anth/conferencia.md): como perguntar ao proprietário e o que conferir antes de entregar.
 - [Script do corpo](skills/hopper-spec-anth/scripts/corpo.sh): insere e confere o corpo na spec de execução.
