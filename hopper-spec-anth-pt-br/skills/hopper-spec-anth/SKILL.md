@@ -18,7 +18,7 @@ Os 2 documentos saem em português, o idioma deste pacote. Se o proprietário es
 
 - **Corpo intocável.** O corpo entra inteiro e igual, montado pelo script `corpo.sh`, nunca redigitado. A única lacuna é `{{PROJETO}}`, na seção 0, que recebe o nome do produto. Resumo, reordenação, correção e "melhoria" do corpo ficam de fora. O corpo só muda por decisão expressa do proprietário, registrada na seção 2 da spec do produto com as palavras dele e a data.
 - **Toda função nos testes.** Cada área de requisitos da spec do produto vira assunto no anexo A3, mesmo quando os dados do proprietário ainda não mostram uso. Só o proprietário tira um assunto, e a saída fica registrada com as palavras dele.
-- **Spec curta.** Cada linha traz um fato, uma regra ou uma decisão do projeto. O anexo não repete o corpo, não explica o porquê das regras e não recapitula. A spec de execução inteira tem até 150 linhas.
+- **Spec curta.** Cada linha traz um fato, uma regra ou uma decisão do projeto. O anexo não repete o corpo, não explica o porquê das regras e não recapitula. O anexo tem até 70 linhas, do título `# Anexo` ao fim.
 - **Nada inventado.** Todo fato tem fonte, que é o projeto, uma resposta do proprietário ou uma página oficial consultada, com a data. O que falta vira pergunta ou recebe uma destas 3 marcas.
   - **a medir.** Número ou tempo que só a execução mostra. Diga quando ele é medido.
   - **a construir.** Arquivo, comando, script ou lista que ainda não existe.
@@ -36,7 +36,7 @@ Pare neste passo, sem gravar arquivo, em 3 casos.
 
 - O pedido é explicar, revisar ou editar esta skill. Atenda o pedido.
 - A entrega não é software, como documento, evento ou processo. Diga que a skill cobre só software feito por agentes de IA e provado por testes.
-- O projeto já tem spec do produto e spec de execução, e o pedido não é reescrevê-las. Diga que a função nova entra pela spec do produto, e a mudança de regra, pela seção 11 do corpo.
+- O projeto já tem spec do produto e spec de execução, e o pedido não é reescrevê-las. Diga que a função nova entra pela spec do produto, e a mudança de regra, pela seção 11 do corpo. O erro aprendido entra pela seção 12.
 
 Pronto quando o produto, o proprietário, as plataformas e o destino estão definidos ou viraram pergunta do passo 3.
 

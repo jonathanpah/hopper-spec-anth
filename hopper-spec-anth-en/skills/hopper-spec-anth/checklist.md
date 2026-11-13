@@ -32,7 +32,7 @@ Check the 2 documents against each item, in order. A failing item is fixed, and 
 
 ## The 2 documents
 
-15. The execution spec has up to 150 lines. No line of the annex or the product spec repeats a body rule, explains why a rule exists, or recaps another section.
+15. The annex has up to 70 lines, from the `# Annex` heading to the end. No line of the annex or the product spec repeats a body rule, explains why a rule exists, or recaps another section.
 16. Each owner decision is in section 2 of the product spec, with the date and the owner's words. Each recommendation adopted without an answer is marked "pending confirmation".
 17. Each thing has 1 name only, the same in the 2 specs and in the glossary.
 18. The sources cited are only the project, the owner, and the pages consulted. The skill appears only in the 2 headers, with its name and version.

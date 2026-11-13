@@ -18,7 +18,7 @@ The 2 documents come out in English, the language of this package. If the owner 
 
 - **Untouchable body.** The body goes in whole and identical, assembled by the `body.sh` script, never retyped. The only slot is `{{PROJECT}}`, in section 0, which receives the product name. Summaries, reordering, corrections, and "improvements" of the body stay out. The body only changes by an express decision of the owner, recorded in section 2 of the product spec with the owner's words and the date.
 - **Every function in the tests.** Each requirement area of the product spec becomes a subject in annex A3, even when the owner's data does not show it in use yet. Only the owner removes a subject, and the removal is recorded with the owner's words.
-- **Short spec.** Each line carries a fact, a rule, or a decision of the project. The annex does not repeat the body, does not explain why the rules exist, and does not recap. The whole execution spec has up to 150 lines.
+- **Short spec.** Each line carries a fact, a rule, or a decision of the project. The annex does not repeat the body, does not explain why the rules exist, and does not recap. The annex has up to 70 lines, from the `# Annex` heading to the end.
 - **Nothing invented.** Every fact has a source, which is the project, an answer from the owner, or an official page consulted, with the date. What is missing becomes a question or gets one of these 3 marks.
   - **to be measured.** A number or time that only execution shows. Say when it is measured.
   - **to be built.** A file, command, script, or list that does not exist yet.
@@ -36,7 +36,7 @@ Stop at this step, without writing a file, in 3 cases.
 
 - The request is to explain, review, or edit this skill. Answer the request.
 - The deliverable is not software, such as a document, an event, or a process. Say that the skill covers only software built by AI agents and proven by tests.
-- The project already has a product spec and an execution spec, and the request is not to rewrite them. Say that a new function enters through the product spec, and a rule change through section 11 of the body.
+- The project already has a product spec and an execution spec, and the request is not to rewrite them. Say that a new function enters through the product spec, and a rule change through section 11 of the body. A lesson from an error enters through section 12.
 
 Done when the product, the owner, the platforms, and the destination are defined or became questions for step 3.
 

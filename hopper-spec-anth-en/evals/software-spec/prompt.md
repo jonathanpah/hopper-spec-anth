@@ -1,6 +1,6 @@
 ---
 description: Writes the 2 specs of a fictional app without the owner available.
-expected_outcome: docs/product-spec.md and docs/execution-spec.md, with the general body identical to the skill's, the annex from A1 to A7, 1 subject per requirement area, up to 150 lines, the "to be measured" marks, and the pending items marked.
+expected_outcome: docs/product-spec.md and docs/execution-spec.md, with the general body identical to the skill's, the annex from A1 to A7, 1 subject per requirement area, an annex of up to 70 lines, the "to be measured" marks, and the pending items marked.
 tags: [with-write]
 runs: 2
 max_turns: 150

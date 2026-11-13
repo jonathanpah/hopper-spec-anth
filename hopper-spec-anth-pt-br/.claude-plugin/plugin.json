@@ -1,6 +1,6 @@
 {
   "name": "hopper-spec-anth",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Escreve a spec do produto e a spec de execução de um software feito por agentes de IA, com o corpo geral sem mudança, pelo modelo de vistoria e levas, e o anexo do projeto.",
   "author": {
     "name": "Jonathan Honorio",

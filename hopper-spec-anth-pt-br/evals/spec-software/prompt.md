@@ -1,6 +1,6 @@
 ---
 description: Escreve as 2 specs de um app fictício sem o proprietário disponível.
-expected_outcome: docs/spec-do-produto.md e docs/spec-de-execucao.md, com o corpo geral igual ao da skill, o anexo de A1 a A7, 1 assunto por área de requisitos, até 150 linhas, as marcas "a medir" e as pendências marcadas.
+expected_outcome: docs/spec-do-produto.md e docs/spec-de-execucao.md, com o corpo geral igual ao da skill, o anexo de A1 a A7, 1 assunto por área de requisitos, o anexo com até 70 linhas, as marcas "a medir" e as pendências marcadas.
 tags: [com-escrita]
 runs: 2
 max_turns: 150

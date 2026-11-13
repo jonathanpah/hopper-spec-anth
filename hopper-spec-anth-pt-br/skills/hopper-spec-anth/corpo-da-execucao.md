@@ -76,3 +76,11 @@ Pendências reais ficam no fim, numeradas. Cada uma informa o que está pendente
 ## 11. Como este documento muda
 
 Só muda por decisão do proprietário, registrada. A mudança reescreve o ponto.
+Ele é atualizado sempre que o jeito certo de fazer algo for aprendido ou mudar, na mesma hora, para o jeito certo não se perder.
+
+## 12. Erros e causas raiz
+
+Cada erro é anotado com a causa raiz. A correção ataca a causa, e não o sintoma.
+O custo da correção tem de ser menor que o custo causado pelo problema. Se for maior, a correção é revista até ficar mais barata que o problema.
+Uma falha não justifica processo novo nem teste gigante. Nenhuma correção de erro muda o modelo da seção 1.
+As regras tiradas dos erros do projeto entram no fim desta seção, com a data.

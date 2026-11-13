@@ -32,7 +32,7 @@ Confira os 2 documentos contra cada item, na ordem. O item que falha é corrigid
 
 ## Os 2 documentos
 
-15. A spec de execução tem até 150 linhas. Nenhuma linha do anexo ou da spec do produto repete regra do corpo, explica o porquê de uma regra ou recapitula outra seção.
+15. O anexo tem até 70 linhas, do título `# Anexo` ao fim. Nenhuma linha do anexo ou da spec do produto repete regra do corpo, explica o porquê de uma regra ou recapitula outra seção.
 16. Cada decisão do proprietário está na seção 2 da spec do produto, com a data e as palavras dele. Cada recomendação adotada sem resposta está marcada "pendente de confirmação".
 17. Cada coisa tem 1 nome só, o mesmo nas 2 specs e no glossário.
 18. As fontes citadas são só o projeto, o proprietário e as páginas consultadas. A skill aparece só nos 2 cabeçalhos, com o nome e a versão.

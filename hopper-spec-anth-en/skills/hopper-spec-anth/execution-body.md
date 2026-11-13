@@ -76,3 +76,11 @@ Real open items go at the end, numbered. Each one states what is open, the recom
 ## 11. How this document changes
 
 It changes only by the owner's decision, recorded. The change rewrites the point.
+It is updated whenever the right way to do something is learned or changes, at that moment, so the right way is not lost.
+
+## 12. Errors and root causes
+
+Each error is noted with its root cause. The fix attacks the cause, not the symptom.
+The cost of the fix has to be lower than the cost caused by the problem. If it is higher, the fix is revised until it costs less than the problem.
+A failure does not justify a new process or a giant test. No error fix changes the model of section 1.
+The rules drawn from the project's errors go at the end of this section, with the date.
