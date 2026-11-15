@@ -42,14 +42,15 @@ The annex answers each item below. The checklist reads this list.
 | 3, sweep script | The script that launches the sweep and the runs that only measure and waits for a free slot and free memory | A2 |
 | 3, 30-minute target | The number of subjects and cases and the duration of the sweep | A6 |
 | 4, problem list | The problem list of each sweep, with the "Test failure, not a product failure" section | A1 |
+| 4, tool failure | The known causes of test-tool failure and the check that tells each one apart from a product problem | A8 |
 | 5, build and data package | The commands to build on each platform and to run the data test package | A8 |
 | 5, real service | The test against each real external service, with the test account | A8 |
 | 5, mission | The run folder and the script that launches the mission and stops the executor at 60 minutes | A2 |
 | 7, delivery | The path of the internal version, what is already released, and what waits for the yes | A3 |
 | 7, publication | The steps of each publication | A7 |
 | 8, models | The standard AI model for each role and where the orchestrator's is | A5 |
-| 8, sessions | The session handover rule, when the project has one | A6 |
-| 10, secrets | Where each secret lives, the official script that reads it, and the check after the mission | A4 |
+| 8, sessions | The session handover rule, when the project has one, and the sessions' permission mode | A6 |
+| 10, secrets | Where each secret lives, who reads it, which is the official script or the operator in the step that names the key, and the check after the mission | A4 |
 
 ## 3. The annex sections
 
@@ -71,7 +72,7 @@ The path of each document, with the "to be built" mark when it does not exist ye
 
 - Each platform of the product, such as web, iPhone, or Android.
 - The test machine of each platform, its slots, and at what hours it is free.
-- What to do when a machine goes offline.
+- What to do when a machine goes offline, with the work that continues on the others.
 - The script that launches the sweep, the runs that only measure, and the missions, which waits for a free slot and free memory and stops the executor at 60 minutes. While it does not exist, it stays "to be built".
 - The folder of each run, from section 5 of the body.
 
@@ -90,7 +91,7 @@ For each outside service, 1 item.
 - Who owns the account and who pays.
 - The test account used by the tests.
 - Where the key lives, outside the repository, with the file permission.
-- The official script that reads it, without printing, and the one that checks the reading after each mission.
+- Who reads it, without printing, which is the official script or the operator in the annex step that names the key, and the script that checks the reading after each mission.
 - What stays only with the owner, such as the password, confirmation codes, and payment.
 
 ### A5. AI models for each role
@@ -99,15 +100,16 @@ The standard, with the source, which is the owner's answer or the recommendation
 
 - Orchestration. The owner always sets the model and the effort, by section 8 of the body. Say where the last one the owner set is.
 - Operation of the tests and the publication.
-- Code writing, with the fixes, the new functions, and the test repairs.
+- Code writing, with the fixes, the new functions, and the test repairs. Say the isolation the executor runs in, such as the tool's sandbox, and the owner's authorization when it runs without that isolation.
 - Review of the fixes that touch data, by a different model from the one that wrote them, by section 6 of the body.
 - Failure triage and research.
 
-Each role carries the exact model name and the effort, as the environment shows. Also say when the standard is asked again and which model takes over when another one's usage limit runs out.
+Each role carries the exact model name and the effort, as the environment shows. Also say when the standard is asked again. The usage limit of the subscriptions is the owner's decision, by section 8 of the body, and the annex carries no fallback model for it.
 
 ### A6. Sessions and starting numbers
 
-- The session handover rule, with what is measured and the tool that writes the conversation record. With no rule in the project, "None. The orchestrator decides, by section 8 of the body".
+- The session handover rule, with what is measured, the tool that writes the conversation record, and how what the session launched keeps running after the handover. With no rule in the project, "None. The orchestrator decides, by section 8 of the body".
+- The permission mode the sessions open in, with the owner's authorization when it skips the permission prompts.
 - The number of subjects, the number of cases, and the duration of the sweep.
 - The number of tests and the duration of the data test package.
 
@@ -118,6 +120,7 @@ In a new project, the numbers stay "to be measured in the 1st sweep".
 - The steps of each publication, in order, with the command for each one. With no publication in the 1st version, "None" and the reason.
 - What the owner released for publication without asking, with the date and the owner's words, when it exists.
 - The check of the published address or channel.
+- The limit of each version, when the owner sets one, and the version that takes an old defect found along the way.
 
 ### A8. Tests: where and how to run them
 
@@ -126,6 +129,7 @@ In a new project, the numbers stay "to be measured in the 1st sweep".
 - The file with each subject's cases, when it exists.
 - The commands to build on each platform, to run the data test package, and the full battery. While they do not exist, they stay "to be built".
 - The test against each real external service, with the test account from A4. With no service, "None".
+- The known causes of test-tool failure on each machine, with the check that tells each one apart from a product problem. In a new project, "None known".
 
 Example of form.
 

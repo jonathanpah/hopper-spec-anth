@@ -1,8 +1,8 @@
 ## 0. What this is
 
-This is the only source of the rules for how {{PROJECT}} is tested and fixed. It holds by the owner's decision, from the approval recorded in the header. What the product does is in the product spec.
+This is the only source of the rules of the execution mode of {{PROJECT}}, which are how it is tested, fixed, and delivered, and who decides. It holds by the owner's decision, from the approval recorded in the header. What the product does is in the product spec.
 Sections 0 to 12 hold the general rules. What belongs only to this project is in the annex, at the end.
-The orchestrator is the AI session that leads the work. The operators are the AI sessions that run the tests and the publication. The executor is the AI session that writes the code. A mission is each task handed to the executor.
+The orchestrator is the AI session that leads the work. It only orchestrates and does not write code. The operators are the AI sessions that run the tests and the publication. The executor is the AI session that writes the code. A mission is each task handed to the executor.
 A subject is a product function, with its test cases. A round is each set of fixes that follows a sweep.
 
 ## 1. The model, in 8 steps
@@ -43,10 +43,10 @@ The operators classify by these definitions, without taking the classification t
 
 ## 5. The test of each fix
 
-The cases that showed the problem run, plus all the other cases of the same subject, up to 15 minutes of machine time.
+The cases that showed the problem run, plus all the other cases of the same subject, except those on the test-failure list (section 4), up to 15 minutes of machine time. The fix does not change the case that showed the problem. A test's expected value changes only to what the product spec says.
 Plus 2 cheap checks. Build on all platforms, always. Run the data test package when the fix touches data code.
 The test against the real external service (annex A8) runs only when the fix changes the calls to that service.
-Passed, next fix. Not passed in 2 attempts, the problem goes to the end of the round, with the measurement.
+A run in which no case ran is a failure of the run, not an approval. Passed, next fix. Not passed in 2 attempts, the problem goes to the end of the round, with the measurement. A delivery with no change and a conclusive measurement does not go to a 2nd attempt, and the orchestrator redesigns the fix right away.
 Only a tree whose checksum matches the last build on all platforms goes into the trunk.
 The mission ends when it delivers the work or after the 2nd attempt that does not pass. The tests it leaves behind are canceled without asking the owner.
 The mission has 45 minutes of work, counted from the start, including the wait for a slot on the test machine. At 45 minutes, it stops starting new changes or tests and makes the soft landing, in up to 15 minutes, in these 4 steps.
@@ -68,23 +68,23 @@ Each publication follows annex A7. In it, the full battery runs 1 time per versi
 
 ## 8. Who decides
 
-The owner decides what is external, irreversible, costs money, or changes what the product does. Only the owner changes the way of operating, which is what this spec and the annex define (section 11). The owner always sets the orchestrator's model and effort, and both vary. The last one the owner set holds, also in a replacement session opened because of context.
+The owner decides what is external, irreversible, costs money, or changes what the product does. Only the owner changes the way of operating, which is what this spec and the annex define (section 11). The owner always sets the orchestrator's model and effort, and both vary. The last one the owner set holds, also in a replacement session opened because of context. The usage limit of the AI subscriptions is also the owner's decision, stated whenever the owner wants, and the orchestrator does not treat it as a risk.
 The orchestrator decides everything else, without taking execution decisions to the owner, and reports only what changes what the owner sees or uses.
 
 ## 9. Messages to the owner
 
-The orchestrator sends the owner a message only with a decision for the owner, a blocker, or a delivery. Without one, it sends nothing, not even to say there is nothing to decide. It does not narrate progress or relay the operators' reports. The operators apply this spec without asking the orchestrator for an ok, including to merge into the trunk a fix that passed sections 5 and 6, and write to it only with a decision the spec does not settle or a blocker.
+The orchestrator sends the owner a message only with a decision for the owner, a blocker, or a delivery the owner asked for. Without one, it sends nothing, not even to say there is nothing to decide. It does not narrate progress or relay the operators' reports. The operators apply this spec without asking the orchestrator for an ok, including to merge into the trunk a fix that passed sections 5 and 6, and write to it only with a decision the spec does not settle or a blocker.
 
-Messages to the owner as a short list, without tables. In a decision, each option says in 1 line what it is and what changes.
-What only the owner does does not become our open item, and no one asks the owner to run a command. Everything that depends on the owner is asked at once. An instruction that changed goes in 1 complete final version.
-What the owner reports seeing is a fact to explain; the cause is still checked. The ceiling of a task is never told to the owner as a deadline.
+Messages to the owner as a short list, without tables. In a decision, each option says in 1 line what it is and what changes. An appearance decision goes to the owner as an image, with the options side by side, through a path that opens on the owner's device. An image sent to the owner to check or decide carries, on the image itself, the numbered mark of what to check.
+What only the owner does does not become our open item, and no one asks the owner to run a command or to test. Everything that depends on the owner is asked at once. An instruction that changed goes in 1 complete final version. What was promised to the owner goes as soon as it exists, without waiting for another milestone.
+What the owner reports seeing is a fact to explain; the cause is still checked. The ceiling of a task is never told to the owner as a deadline. When the owner asks about progress, the answer gives the step of section 1, the open problems by class, what runs now, and who does each part, with the model and effort.
 
 ## 10. What never changes
 
 - The tests do not use the owner's real data or real paid services.
-- The executor does not read the project's secrets (annex A4). Only the official scripts read them. The reading is checked after the mission, and a key that was read is replaced.
+- The executor does not read the project's secrets (annex A4). Only the official scripts and the operator read them, in the annex steps that name the key. The reading is checked after the mission, and a key that was read is replaced.
 - Whoever executes delivers facts and measurements and does not decide that the work is done or change the course.
-- No execution goes past 45 minutes, whether process, test, batch, battery, review, measurement, or script. It stops when it reaches 45 minutes, without a landing. The only exception is the executor's mission, with 45 minutes of work and up to 15 minutes of soft landing (section 5). Each execution has the ceiling in its own script. What needs more time is split into parts of up to 45 minutes.
+- No execution goes past 45 minutes, whether process, test, batch, battery, review, measurement, or script. The sessions of the orchestrator and the operators and the services that stay up are not executions. An execution stops when it reaches 45 minutes, without a landing. The only exception is the executor's mission, with 45 minutes of work and up to 15 minutes of soft landing (section 5). Each execution has the ceiling in its own script. What needs more time is split into parts of up to 45 minutes.
 
 ## 11. How this document changes
 

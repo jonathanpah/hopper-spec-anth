@@ -42,14 +42,15 @@ O anexo responde a cada item abaixo. A conferência lê esta lista.
 | 3, script da vistoria | O script que lança a vistoria e as rodadas que só medem e espera a vaga e a memória livres | A2 |
 | 3, alvo de 30 minutos | O número de assuntos e de casos e a duração da vistoria | A6 |
 | 4, lista de problemas | A lista de problemas de cada vistoria, com a seção "Falha do teste, e não do produto" | A1 |
+| 4, falha da ferramenta | As causas conhecidas de falha da ferramenta de teste e a conferência que separa cada uma de um problema do produto | A8 |
 | 5, compilar e pacote de dados | Os comandos de compilar em cada plataforma e de rodar o pacote de testes de dados | A8 |
 | 5, serviço real | O teste contra cada serviço externo real, com a conta de teste | A8 |
 | 5, missão | A pasta da rodada e o script que lança a missão e para o executor aos 60 minutos | A2 |
 | 7, entrega | O caminho da versão interna, o que já está liberado e o que espera o sim | A3 |
 | 7, publicação | Os passos de cada publicação | A7 |
 | 8, modelos | O padrão de modelo de IA de cada papel e onde fica o da orquestradora | A5 |
-| 8, sessões | A regra de troca de sessão, quando o projeto tem uma | A6 |
-| 10, segredos | Onde cada segredo fica, o script oficial que o lê e a conferência depois da missão | A4 |
+| 8, sessões | A regra de troca de sessão, quando o projeto tem uma, e o modo de permissão das sessões | A6 |
+| 10, segredos | Onde cada segredo fica, quem o lê, que é o script oficial ou a operadora no passo que cita a chave, e a conferência depois da missão | A4 |
 
 ## 3. As seções do anexo
 
@@ -71,7 +72,7 @@ O caminho de cada documento, com a marca "a construir" quando ele ainda não exi
 
 - Cada plataforma do produto, como web, iPhone ou Android.
 - A máquina de testes de cada plataforma, as vagas dela e em que horários ela fica livre.
-- O que fazer quando uma máquina sai do ar.
+- O que fazer quando uma máquina sai do ar, com o trabalho que continua nas outras.
 - O script que lança a vistoria, as rodadas que só medem e as missões, que espera a vaga e a memória livres e para o executor aos 60 minutos. Enquanto ele não existe, fica "a construir".
 - A pasta de cada rodada, da seção 5 do corpo.
 
@@ -90,7 +91,7 @@ Para cada serviço de fora, 1 item.
 - Quem é o dono da conta e quem paga.
 - A conta de teste usada pelos testes.
 - Onde a chave fica, fora do repositório, com a permissão do arquivo.
-- O script oficial que a lê, sem imprimir, e o que confere a leitura depois de cada missão.
+- Quem a lê, sem imprimir, que é o script oficial ou a operadora no passo do anexo que cita a chave, e o script que confere a leitura depois de cada missão.
 - O que fica só com o proprietário, como senha, códigos de confirmação e pagamento.
 
 ### A5. Modelos de IA de cada papel
@@ -99,15 +100,16 @@ O padrão, com a fonte, que é a resposta do proprietário ou a recomendação "
 
 - Orquestração. O proprietário define sempre o modelo e o esforço, pela seção 8 do corpo. Diga onde fica o último que ele definiu.
 - Operação dos testes e da publicação.
-- Escrita de código, com as correções, as funções novas e o conserto de teste.
+- Escrita de código, com as correções, as funções novas e o conserto de teste. Diga o isolamento em que o executor roda, como o sandbox da ferramenta, e a autorização do proprietário quando ele roda sem esse isolamento.
 - Revisão das correções que mexem em dados, por um modelo diferente do que escreveu, pela seção 6 do corpo.
 - Triagem de falhas e pesquisa.
 
-Cada papel leva o nome exato do modelo e o esforço, como o ambiente mostra. Diga também quando o padrão é perguntado de novo e qual modelo assume quando o limite de uso de outro acaba.
+Cada papel leva o nome exato do modelo e o esforço, como o ambiente mostra. Diga também quando o padrão é perguntado de novo. O limite de uso das assinaturas é decisão do proprietário, pela seção 8 do corpo, e o anexo não traz modelo reserva para ele.
 
 ### A6. Sessões e números de partida
 
-- A regra de troca de sessão, com o que se mede e a ferramenta que grava o registro da conversa. Sem regra no projeto, "Nenhuma. A orquestradora decide, pela seção 8 do corpo".
+- A regra de troca de sessão, com o que se mede, a ferramenta que grava o registro da conversa e como o que a sessão lançou continua rodando depois da troca. Sem regra no projeto, "Nenhuma. A orquestradora decide, pela seção 8 do corpo".
+- O modo de permissão em que as sessões abrem, com a autorização do proprietário quando ele dispensa os pedidos de permissão.
 - O número de assuntos, o número de casos e a duração da vistoria.
 - O número de testes e a duração do pacote de testes de dados.
 
@@ -118,6 +120,7 @@ Em projeto novo, os números ficam "a medir na 1ª vistoria".
 - Os passos de cada publicação, em ordem, com o comando de cada um. Sem publicação na 1ª versão, "Nenhuma" e o motivo.
 - O que o proprietário liberou para publicar sem pergunta, com a data e as palavras dele, quando existe.
 - A conferência do endereço ou do canal publicado.
+- O limite de cada versão, quando o proprietário define um, e a versão em que entra o defeito antigo achado no caminho.
 
 ### A8. Testes: onde e como rodar
 
@@ -126,6 +129,7 @@ Em projeto novo, os números ficam "a medir na 1ª vistoria".
 - O arquivo com os casos de cada assunto, quando ele existe.
 - Os comandos de compilar em cada plataforma, de rodar o pacote de testes de dados e a bateria completa. Enquanto eles não existem, ficam "a construir".
 - O teste contra cada serviço externo real, com a conta de teste do A4. Sem serviço, "Nenhum".
+- As causas conhecidas de falha da ferramenta de teste em cada máquina, com a conferência que separa cada uma de um problema do produto. Em projeto novo, "Nenhuma conhecida".
 
 Exemplo de forma.
 

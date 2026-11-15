@@ -1,8 +1,8 @@
 ## 0. O que é
 
-Esta é a única fonte das regras de como testar e corrigir o {{PROJETO}}. Vale por decisão do proprietário, desde a aprovação registrada no cabeçalho. O que o produto faz fica na spec do produto.
+Esta é a única fonte das regras do modo de execução do {{PROJETO}}, que são como testar, corrigir e entregar e quem decide. Vale por decisão do proprietário, desde a aprovação registrada no cabeçalho. O que o produto faz fica na spec do produto.
 As seções 0 a 12 trazem as regras gerais. O que é só deste projeto fica no anexo, no fim.
-A orquestradora é a sessão de IA que conduz o trabalho. As operadoras são as sessões de IA que operam os testes e a publicação. O executor é a sessão de IA que escreve o código. Missão é cada tarefa entregue ao executor.
+A orquestradora é a sessão de IA que conduz o trabalho. Ela só orquestra e não escreve código. As operadoras são as sessões de IA que operam os testes e a publicação. O executor é a sessão de IA que escreve o código. Missão é cada tarefa entregue ao executor.
 Assunto é uma função do produto, com os casos de teste dela. Leva é cada rodada de correções que vem depois de uma vistoria.
 
 ## 1. O modelo, em 8 passos
@@ -43,10 +43,10 @@ As operadoras classificam por estas definições, sem levar a classificação à
 
 ## 5. O teste de cada correção
 
-Rodam os casos que mostraram o problema e todos os demais casos do mesmo assunto, até 15 minutos de máquina.
+Rodam os casos que mostraram o problema e todos os demais casos do mesmo assunto, menos os da lista de falha do teste (seção 4), até 15 minutos de máquina. A correção não muda o caso que mostrou o problema. O valor esperado de um teste só muda para o que a spec do produto diz.
 Mais 2 conferências baratas. Compilar em todas as plataformas, sempre. Rodar o pacote de testes de dados quando a correção mexe em código de dados.
 O teste contra o serviço externo real (anexo A8) roda só quando a correção muda as chamadas a esse serviço.
-Passou, próxima correção. Não passou em 2 tentativas, o problema vai para o fim da leva, com a medida.
+Rodada em que nenhum caso rodou é falha da rodada, e não aprovação. Passou, próxima correção. Não passou em 2 tentativas, o problema vai para o fim da leva, com a medida. A entrega sem mudança, com medida conclusiva, não vai à 2ª tentativa, e a orquestradora redesenha a correção na hora.
 Só entra no tronco a árvore cuja soma é a da última compilação em todas as plataformas.
 A missão termina quando entrega o trabalho ou depois da 2ª tentativa sem passar. Os testes que sobrarem dela são cancelados sem pergunta ao proprietário.
 A missão tem 45 minutos de trabalho, contados do início, incluída a espera pela vaga na máquina de testes. Aos 45 minutos, ela para de começar mudança ou teste novo e faz o pouso suave, em até 15 minutos, nestes 4 passos.
@@ -68,23 +68,23 @@ Cada publicação segue o anexo A7. Nela, a bateria completa roda 1 vez por vers
 
 ## 8. Quem decide
 
-O proprietário decide o que é externo, irreversível, custa dinheiro ou muda o que o produto faz. Só ele muda a forma de operar, que é o que esta spec e o anexo definem (seção 11). Ele define sempre o modelo e o esforço da orquestradora, e os 2 variam. Vale o último que ele definiu, também na sessão substituta aberta por contexto.
+O proprietário decide o que é externo, irreversível, custa dinheiro ou muda o que o produto faz. Só ele muda a forma de operar, que é o que esta spec e o anexo definem (seção 11). Ele define sempre o modelo e o esforço da orquestradora, e os 2 variam. Vale o último que ele definiu, também na sessão substituta aberta por contexto. O limite de uso das assinaturas de IA também é decisão dele, dita quando ele quiser, e a orquestradora não o trata como risco.
 A orquestradora decide todo o resto, sem levar ao proprietário decisão de execução, e conta só o que muda o que ele vê ou usa.
 
 ## 9. Mensagens ao proprietário
 
-A orquestradora manda mensagem ao proprietário só com decisão dele, bloqueio ou entrega. Sem isso, não manda nada, nem para dizer que não existe nada a decidir. Ela não narra o andamento nem repassa relatos das operadoras. As operadoras aplicam esta spec sem pedir ok à orquestradora, inclusive para juntar no tronco a correção que passou pelas seções 5 e 6, e só escrevem a ela com decisão que a spec não resolve ou bloqueio.
+A orquestradora manda mensagem ao proprietário só com decisão dele, bloqueio ou entrega que ele pediu. Sem isso, não manda nada, nem para dizer que não existe nada a decidir. Ela não narra o andamento nem repassa relatos das operadoras. As operadoras aplicam esta spec sem pedir ok à orquestradora, inclusive para juntar no tronco a correção que passou pelas seções 5 e 6, e só escrevem a ela com decisão que a spec não resolve ou bloqueio.
 
-Mensagens ao proprietário em lista curta, sem tabela. Em decisão, cada opção diz em 1 linha o que é e o que muda.
-O que só ele faz não vira pendência nossa, e ninguém pede que ele rode comando. Tudo que depende dele é pedido de uma vez. Instrução que mudou vai em 1 versão final completa.
-O que o proprietário relata ver é fato a explicar; a causa ainda é conferida. O teto de uma tarefa nunca é dito a ele como prazo.
+Mensagens ao proprietário em lista curta, sem tabela. Em decisão, cada opção diz em 1 linha o que é e o que muda. Decisão de aparência vai a ele em imagem, com as opções lado a lado, por um caminho que abre no aparelho dele. Imagem que vai a ele para conferir ou decidir leva, na própria imagem, a marca numerada do que conferir.
+O que só ele faz não vira pendência nossa, e ninguém pede que ele rode comando nem que teste. Tudo que depende dele é pedido de uma vez. Instrução que mudou vai em 1 versão final completa. O que foi prometido a ele vai assim que existe, sem esperar outro marco.
+O que o proprietário relata ver é fato a explicar; a causa ainda é conferida. O teto de uma tarefa nunca é dito a ele como prazo. Quando ele pergunta o andamento, a resposta diz o passo da seção 1, os problemas abertos por classe, o que roda agora e quem faz cada parte, com o modelo e o esforço.
 
 ## 10. O que nunca muda
 
 - Os testes não usam os dados reais do proprietário nem serviços pagos reais.
-- O executor não lê os segredos do projeto (anexo A4). Só os scripts oficiais leem. A leitura é conferida depois da missão, e a chave lida é trocada.
+- O executor não lê os segredos do projeto (anexo A4). Só leem os scripts oficiais e a operadora, nos passos do anexo que citam a chave. A leitura é conferida depois da missão, e a chave lida é trocada.
 - Quem executa entrega fato e medida e não decide que está pronto nem muda o rumo.
-- Nenhuma execução passa de 45 minutos, seja processo, teste, lote, bateria, revisão, medida ou script. Ela para ao chegar aos 45 minutos, sem pouso. A única exceção é a missão do executor, com 45 minutos de trabalho e até 15 minutos de pouso suave (seção 5). Cada execução tem o teto no próprio script. O que precisa de mais tempo é dividido em partes de até 45 minutos.
+- Nenhuma execução passa de 45 minutos, seja processo, teste, lote, bateria, revisão, medida ou script. As sessões da orquestradora e das operadoras e os serviços que ficam no ar não são execução. Ela para ao chegar aos 45 minutos, sem pouso. A única exceção é a missão do executor, com 45 minutos de trabalho e até 15 minutos de pouso suave (seção 5). Cada execução tem o teto no próprio script. O que precisa de mais tempo é dividido em partes de até 45 minutos.
 
 ## 11. Como este documento muda
 
