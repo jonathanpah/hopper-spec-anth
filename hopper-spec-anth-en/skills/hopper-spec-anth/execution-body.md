@@ -103,5 +103,7 @@ General rules drawn from errors.
 - **Parallel within capacity.** The work runs in parallel as far as the test machine allows. The script that launches the runs waits for a free slot and free memory (annex A2).
 - **A test tool that fails.** The cost rule applies. A cheap fix, of minutes, goes in at the 1st failure. An expensive fix waits. The run is repeated, and the tool is fixed only if the failure comes back from the same cause.
 - **End of a step checked in the file.** When a step has an expected result in a file, the orchestrator waits for that file, not only for the other session's notice.
+- **Missions on the same slot.** Missions that use the same slot on the test machine start at intervals, so their tests do not overlap.
+- **A stuck execution.** A stuck execution is stopped by its process number and run again later, without a diagnosis while it is running.
 
 The rules drawn from the project's errors go after these, with the date, by section 11.

@@ -100,7 +100,7 @@ The standard, with the source, which is the owner's answer or the recommendation
 
 - Orchestration. The owner always sets the model and the effort, by section 8 of the body. Say where the last one the owner set is.
 - Operation of the tests and the publication.
-- Code writing, with the fixes, the new functions, and the test repairs. Say the isolation the executor runs in, such as the tool's sandbox, and the owner's authorization when it runs without that isolation.
+- Code writing, with the fixes, the new functions, and the test repairs. Say the isolation the executor runs in, such as the tool's sandbox, and the owner's authorization when it runs without that isolation. Also say the model that may receive a problem that did not pass in 2 attempts (section 5 of the body), when the owner sets one, and who decides each case.
 - Review of the fixes that touch data, by a different model from the one that wrote them, by section 6 of the body.
 - Failure triage and research.
 

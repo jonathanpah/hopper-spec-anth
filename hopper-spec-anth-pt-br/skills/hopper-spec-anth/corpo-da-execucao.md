@@ -103,5 +103,7 @@ Regras gerais tiradas de erros.
 - **Paralelo dentro da capacidade.** O trabalho roda em paralelo até onde a máquina de testes comporta. O script que lança as rodadas espera a vaga e a memória livres (anexo A2).
 - **Ferramenta de teste que falha.** Vale a regra do custo. Correção barata, de minutos, entra na 1ª falha. Correção cara espera. A rodada é repetida, e a ferramenta só é corrigida se a falha voltar pela mesma causa.
 - **Fim de etapa conferido no arquivo.** Quando uma etapa tem resultado previsto em arquivo, a orquestradora espera por esse arquivo, e não só pelo aviso da outra sessão.
+- **Missões na mesma vaga.** Missões que usam a mesma vaga da máquina de testes saem com intervalo, para os testes não se cruzarem.
+- **Execução presa.** A execução presa é parada pelo número do processo e refeita depois, sem diagnóstico com ela rodando.
 
 As regras tiradas dos erros do projeto entram depois destas, com a data, pela seção 11.

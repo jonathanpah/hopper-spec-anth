@@ -100,7 +100,7 @@ O padrão, com a fonte, que é a resposta do proprietário ou a recomendação "
 
 - Orquestração. O proprietário define sempre o modelo e o esforço, pela seção 8 do corpo. Diga onde fica o último que ele definiu.
 - Operação dos testes e da publicação.
-- Escrita de código, com as correções, as funções novas e o conserto de teste. Diga o isolamento em que o executor roda, como o sandbox da ferramenta, e a autorização do proprietário quando ele roda sem esse isolamento.
+- Escrita de código, com as correções, as funções novas e o conserto de teste. Diga o isolamento em que o executor roda, como o sandbox da ferramenta, e a autorização do proprietário quando ele roda sem esse isolamento. Diga também o modelo que pode receber o problema que não passou em 2 tentativas (seção 5 do corpo), quando o proprietário define um, e quem decide cada caso.
 - Revisão das correções que mexem em dados, por um modelo diferente do que escreveu, pela seção 6 do corpo.
 - Triagem de falhas e pesquisa.
 

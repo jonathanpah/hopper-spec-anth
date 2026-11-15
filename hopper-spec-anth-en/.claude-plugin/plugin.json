@@ -1,6 +1,6 @@
 {
   "name": "hopper-spec-anth",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Writes the product spec and the execution spec for software built by AI agents, with the general body unchanged, by the sweep-and-rounds model, and the project annex.",
   "author": {
     "name": "Jonathan Honorio",
