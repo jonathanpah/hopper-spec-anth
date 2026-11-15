@@ -6,7 +6,7 @@ The execution spec has 3 parts, in this order. The header, the general body, and
 
 1. The file before the script
 2. What the body leaves to the annex
-3. The annex sections, A1 to A7
+3. The annex sections, A1 to A9
 
 ## 1. The file before the script
 
@@ -23,7 +23,7 @@ Draft of <date>, written by the hopper-spec-anth <version> skill, with the gener
 
 ## A1. Project documents
 ...
-## A7. Sessions and starting numbers
+## A9. Checks outside the tests
 ...
 ```
 
@@ -36,17 +36,20 @@ The annex answers each item below. The checklist reads this list.
 | Body section | What the annex holds | Where |
 | --- | --- | --- |
 | 0 and 11, approval and change | The project's decision record | A1 |
-| 2, subjects | 1 subject per product spec function, and what the owner removed | A3 |
-| 3, platforms | The platforms and the machines that run the tests | A2 |
-| 3, data package | The command of the data test package | A2 |
-| 3, 2-hour target | The size and duration of the sweep | A7 |
-| 4, test list | The list of failing tests and the list of classified problems | A1 |
-| 5, build | The build command on each platform | A2 |
-| 5, real service | The test account of each real external service | A5 |
-| 7, delivery | The path of the internal version, what is already released, and what waits for the yes | A4 |
-| 8, models | The standard AI model for each role | A6 |
-| 8, sessions | The session handover rule, when the project has one | A7 |
-| 10, secrets | Where each secret lives and the official script that reads it | A5 |
+| 2, subjects | 1 subject per product spec function, and what the owner removed | A8 |
+| 2, checks | The checks that left the tests and the ones kept in a cheap version | A9 |
+| 3, platforms | The platforms, the test machine, and its slots | A2 |
+| 3, sweep script | The script that launches the sweep and the runs that only measure and waits for a free slot and free memory | A2 |
+| 3, 30-minute target | The number of subjects and cases and the duration of the sweep | A6 |
+| 4, problem list | The problem list of each sweep, with the "Test failure, not a product failure" section | A1 |
+| 5, build and data package | The commands to build on each platform and to run the data test package | A8 |
+| 5, real service | The test against each real external service, with the test account | A8 |
+| 5, mission | The run folder and the script that launches the mission and stops the executor at 60 minutes | A2 |
+| 7, delivery | The path of the internal version, what is already released, and what waits for the yes | A3 |
+| 7, publication | The steps of each publication | A7 |
+| 8, models | The standard AI model for each role and where the orchestrator's is | A5 |
+| 8, sessions | The session handover rule, when the project has one | A6 |
+| 10, secrets | Where each secret lives, the official script that reads it, and the check after the mission | A4 |
 
 ## 3. The annex sections
 
@@ -61,33 +64,18 @@ The path of each document, with the "to be built" mark when it does not exist ye
 - The product spec and the execution spec.
 - The decision record.
 - The project instructions for agents, such as `AGENTS.md` or `CLAUDE.md`.
-- The list of classified problems and the list of failing tests, from section 4 of the body.
+- The problem list of each sweep, with the "Test failure, not a product failure" section, from section 4 of the body.
 - The session records.
 
 ### A2. Platforms and machines
 
 - Each platform of the product, such as web, iPhone, or Android.
-- Where each platform's tests run, at what hours the machine is free, and how many builds run at the same time.
+- The test machine of each platform, its slots, and at what hours it is free.
 - What to do when a machine goes offline.
-- The commands to build on each platform, to run the sweep, and to run the data test package. While they do not exist, they stay "to be built".
+- The script that launches the sweep, the runs that only measure, and the missions, which waits for a free slot and free memory and stops the executor at 60 minutes. While it does not exist, it stays "to be built".
+- The folder of each run, from section 5 of the body.
 
-### A3. Tested subjects
-
-- 1 subject per product spec function, with the requirement identifiers. Every function is covered, even without use in the owner's data.
-- What the owner removed, with the date and the owner's words. With no removal, "None".
-- The file with each subject's cases, when it exists.
-
-Example of form.
-
-```markdown
-## A3. Tested subjects
-
-- Recipes, RE-01 to RE-06. Search, SE-01 to SE-03. Shopping list, SL-01 to SL-04.
-- The owner removed no subject.
-- The cases live in `tests/subjects.json`, to be built.
-```
-
-### A4. Delivery
+### A3. Delivery
 
 - **Internal version.** How the version from the end of each round reaches the owner on each platform, by the delivery how decision.
 - **Released without asking.** What the owner released to the outside, with the date and the owner's words. With no release, "None".
@@ -95,32 +83,61 @@ Example of form.
 - **Version number.** Where it lives and how it changes.
 - **Outside deadlines.** Expiry of test versions, account renewals, and other service deadlines, with the source.
 
-### A5. Accounts and secrets
+### A4. Accounts and secrets
 
 For each outside service, 1 item.
 
 - Who owns the account and who pays.
 - The test account used by the tests.
 - Where the key lives, outside the repository, with the file permission.
-- The official script that reads it, without printing.
+- The official script that reads it, without printing, and the one that checks the reading after each mission.
 - What stays only with the owner, such as the password, confirmation codes, and payment.
 
-### A6. AI models for each role
+### A5. AI models for each role
 
 The standard, with the source, which is the owner's answer or the recommendation "pending confirmation".
 
-- Orchestration.
-- Operation of the tests and the delivery.
-- Fixes, including test repairs.
+- Orchestration. The owner always sets the model and the effort, by section 8 of the body. Say where the last one the owner set is.
+- Operation of the tests and the publication.
+- Code writing, with the fixes, the new functions, and the test repairs.
 - Review of the fixes that touch data, by a different model from the one that wrote them, by section 6 of the body.
 - Failure triage and research.
 
 Each role carries the exact model name and the effort, as the environment shows. Also say when the standard is asked again and which model takes over when another one's usage limit runs out.
 
-### A7. Sessions and starting numbers
+### A6. Sessions and starting numbers
 
 - The session handover rule, with what is measured and the tool that writes the conversation record. With no rule in the project, "None. The orchestrator decides, by section 8 of the body".
 - The number of subjects, the number of cases, and the duration of the sweep.
 - The number of tests and the duration of the data test package.
 
 In a new project, the numbers stay "to be measured in the 1st sweep".
+
+### A7. Publication
+
+- The steps of each publication, in order, with the command for each one. With no publication in the 1st version, "None" and the reason.
+- What the owner released for publication without asking, with the date and the owner's words, when it exists.
+- The check of the published address or channel.
+
+### A8. Tests: where and how to run them
+
+- 1 subject per product spec function, with the requirement identifiers. Every function is covered, even without use in the owner's data.
+- What the owner removed, with the date and the owner's words. With no removal, "None".
+- The file with each subject's cases, when it exists.
+- The commands to build on each platform, to run the data test package, and the full battery. While they do not exist, they stay "to be built".
+- The test against each real external service, with the test account from A4. With no service, "None".
+
+Example of form.
+
+```markdown
+## A8. Tests: where and how to run them
+
+- Recipes, RE-01 to RE-06. Search, SE-01 to SE-03. Shopping list, SL-01 to SL-04.
+- The owner removed no subject.
+- The cases live in `tests/subjects.json`, to be built.
+```
+
+### A9. Checks outside the tests
+
+- The checks that are not product functions and left the tests, such as the screen reader or comparing the screen with reference images, by the owner's answer.
+- The ones kept in a cheap version and how each one runs. With none, "None".

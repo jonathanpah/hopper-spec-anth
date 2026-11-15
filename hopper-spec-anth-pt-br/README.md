@@ -7,11 +7,11 @@ Uma skill do Claude Code que escreve as 2 specs de um produto de software que ag
 ## Os 2 documentos
 
 - **Spec do produto.** O que o produto faz. Traz o objetivo, as decisões do proprietário, o glossário, os requisitos numerados, cada um com o que tem de ser verdade e como se confere, o que nunca pode acontecer, o que fica fora, as decisões de como e os riscos.
-- **Spec de execução.** Como o produto é testado e corrigido. Traz o corpo geral, com as seções 0 a 12, sem mudança, e o anexo do projeto, com as seções A1 a A7.
+- **Spec de execução.** Como o produto é testado e corrigido. Traz o corpo geral, com as seções 0 a 12, sem mudança, e o anexo do projeto, com as seções A1 a A9.
 
-O corpo geral vale para qualquer projeto e traz o modelo de vistoria e levas. Uma vistoria larga e rasa passa pelo produto inteiro. Os problemas são classificados em grande, médio e pequeno e corrigidos nessa ordem, 1 por vez, com o teste só de cada correção, e uma nova vistoria confere cada leva. O corpo também define a revisão das correções de dados, a entrega no fim de cada leva, quem decide, o formato das mensagens ao proprietário e a correção de cada erro pela causa raiz, com custo menor que o do problema. Ele entra em cada spec inteiro e igual, montado por script, e a skill confere a cópia antes de entregar.
+O corpo geral vale para qualquer projeto e traz o modelo de vistoria e levas. Uma vistoria larga e rasa passa pelo produto inteiro. Os problemas são classificados em grande, médio e pequeno e corrigidos nessa ordem, 1 por vez, com o teste só de cada correção, e uma nova vistoria confere cada leva. O corpo também define a revisão das correções de dados, a missão do executor, com teto e pouso suave, a entrega no fim de cada leva, quem decide, quando se manda mensagem ao proprietário, o teto de 45 minutos de toda execução e a correção de cada erro pela causa raiz, com custo menor que o do problema. Ele entra em cada spec inteiro e igual, montado por script, e a skill confere a cópia antes de entregar.
 
-O anexo é escrito para cada projeto. Ele cobre os documentos, as plataformas e as máquinas, os assuntos testados, a entrega, as contas e os segredos, os modelos de IA de cada papel, as sessões e os números de partida. Toda função da spec do produto vira assunto dos testes, e só o proprietário tira um assunto. O anexo tem até 70 linhas. O que a skill não sabe vira pergunta ou fica marcado "a medir", "a construir" ou "pendente de confirmação".
+O anexo é escrito para cada projeto. Ele cobre os documentos, as plataformas e as máquinas, a entrega, as contas e os segredos, os modelos de IA de cada papel, as sessões e os números de partida, a publicação, os testes, com os assuntos testados, e as conferências fora dos testes. Toda função da spec do produto vira assunto dos testes, e só o proprietário tira um assunto. O anexo tem até 90 linhas. O que a skill não sabe vira pergunta ou fica marcado "a medir", "a construir" ou "pendente de confirmação".
 
 ## Alcance
 
@@ -92,7 +92,7 @@ O Claude lê o projeto, faz as perguntas que faltam, escreve os 2 documentos e i
 
 Confira as alterações locais e atualize o clone com `git pull --ff-only`. Depois, execute `claude plugin marketplace update hopper-spec-anth` e `claude plugin update hopper-spec-anth@hopper-spec-anth`, e envie `/reload-plugins` nas sessões abertas. Se usou upload no aplicativo, atualize também o pacote da conta.
 
-Specs já escritas não mudam com a atualização. Cada spec registra no cabeçalho a versão da skill que a escreveu. A versão 2.0.0 trocou o modelo da spec de execução pelo de vistoria e levas e não converte specs escritas antes dela. A 2.1.0 acrescenta ao corpo a seção 12, de erros e causas raiz.
+Specs já escritas não mudam com a atualização. Cada spec registra no cabeçalho a versão da skill que a escreveu. A versão 2.0.0 trocou o modelo da spec de execução pelo de vistoria e levas e não converte specs escritas antes dela. A 2.1.0 acrescenta ao corpo a seção 12, de erros e causas raiz. A 3.0.0 traz ao corpo as operadoras, as missões com teto e pouso suave, a vistoria de 30 minutos e o teto de 45 minutos de toda execução, e reorganiza o anexo em A1 a A9, sem converter specs escritas antes dela.
 
 Para remover, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` e remova a instalação da conta no aplicativo, se existir.
 

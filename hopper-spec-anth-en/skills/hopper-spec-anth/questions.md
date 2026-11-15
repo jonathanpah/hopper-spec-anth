@@ -23,13 +23,13 @@ Skip each item that the request, the project, or an earlier answer already answe
 7. **Sends without asking.** Distribution to outside people and publication to the public always go through the owner. Ask whether any routine send may go out without asking.
 8. **Where the tests run.** Which computers or servers exist for the tests, and at what hours each one is free.
 9. **Checks that are not product functions.** Such as the screen reader, color contrast, minimum touch size, and comparing the screen with reference images. Ask which ones enter the tests. Every product function always enters, and only the owner removes a subject.
-10. **AI model for each role.** The roles are orchestration, operation of tests and delivery, fixes, review of data fixes, and triage. The data reviewer comes from a different model than the one that wrote the fix. Recommend from the models the environment offers today, with the exact name, and also ask when the standard is asked again.
+10. **AI model for each role.** The roles are orchestration, operation of tests and publication, code writing, review of data fixes, and triage. For orchestration, ask which model and effort the owner wants now, because the owner always sets both. The data reviewer comes from a different model than the one that wrote the fix. Recommend from the models the environment offers today, with the exact name, and also ask when the standard is asked again.
 11. **What stays out.** What does not enter the 1st version, to confirm.
 
 ## What never becomes a question
 
 - **Technical choice.** Language, architecture, folders, and tools are how decisions, yours, recorded in section 7 of the product spec.
-- **Execution decision.** The sweep cases, the classification of problems, the order of fixes, and the sessions belong to the orchestrator, by section 8 of the body.
+- **Execution decision.** The sweep cases, the order of fixes, and the sessions belong to the orchestrator, and the classification of problems belongs to the operators, by sections 4 and 8 of the body.
 - **A number that only execution shows.** The duration of the sweep and of the data test package stays "to be measured".
 - **A fact you can look up.** Versions, prices, and rules of stores or services are checked in the official documentation.
 

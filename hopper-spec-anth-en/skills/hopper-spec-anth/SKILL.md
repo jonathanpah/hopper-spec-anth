@@ -17,8 +17,8 @@ The 2 documents come out in English, the language of this package. If the owner 
 ## Rules for every step
 
 - **Untouchable body.** The body goes in whole and identical, assembled by the `body.sh` script, never retyped. The only slot is `{{PROJECT}}`, in section 0, which receives the product name. Summaries, reordering, corrections, and "improvements" of the body stay out. The body only changes by an express decision of the owner, recorded in section 2 of the product spec with the owner's words and the date.
-- **Every function in the tests.** Each requirement area of the product spec becomes a subject in annex A3, even when the owner's data does not show it in use yet. Only the owner removes a subject, and the removal is recorded with the owner's words.
-- **Short spec.** Each line carries a fact, a rule, or a decision of the project. The annex does not repeat the body, does not explain why the rules exist, and does not recap. The annex has up to 70 lines, from the `# Annex` heading to the end.
+- **Every function in the tests.** Each requirement area of the product spec becomes a subject in annex A8, even when the owner's data does not show it in use yet. Only the owner removes a subject, and the removal is recorded with the owner's words.
+- **Short spec.** Each line carries a fact, a rule, or a decision of the project. The annex does not repeat the body, does not explain why the rules exist, and does not recap. The annex has up to 90 lines, from the `# Annex` heading to the end.
 - **Nothing invented.** Every fact has a source, which is the project, an answer from the owner, or an official page consulted, with the date. What is missing becomes a question or gets one of these 3 marks.
   - **to be measured.** A number or time that only execution shows. Say when it is measured.
   - **to be built.** A file, command, script, or list that does not exist yet.
@@ -58,7 +58,7 @@ Done when the owner has answered and each answer is recorded, or when the reques
 
 ### 4. Decide the how
 
-The technical choices are yours, such as architecture, language, folders, test tools, and the path of the internal version. Prefer the native resource, with active support and fewer dependencies. Each choice becomes a how decision in section 7 of the product spec, with dated sources. The test decision defines the commands in annex A2.
+The technical choices are yours, such as architecture, language, folders, test tools, and the path of the internal version. Prefer the native resource, with active support and fewer dependencies. Each choice becomes a how decision in section 7 of the product spec, with dated sources. The test decision defines the commands in annex A8.
 
 Done when each requirement and each annex section that depends on technique has the how decision that supports it.
 

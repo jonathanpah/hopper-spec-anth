@@ -55,7 +55,7 @@ Open the section with these rules, adapted to the project.
 - The tests carry the identifier in the name, such as `test_RE_01_createRecipe`.
 - Each requirement says what has to be true and how it is checked.
 
-Group the requirements by area, in numbered subsections, with this table. Each area is a product function and becomes a subject in annex A3 of the execution spec.
+Group the requirements by area, in numbered subsections, with this table. Each area is a product function and becomes a subject in annex A8 of the execution spec.
 
 ### 4.1 Recipes
 
@@ -100,10 +100,10 @@ Mandatory decisions.
 
 - Architecture and language.
 - Project and folders.
-- Tests, with the tools and the commands to build, to run the sweep, and to run the data test package. It forms annex A2.
+- Tests, with the tools and the commands to build, to run the sweep, and to run the data test package. It forms annex A8.
 - Data storage and file format, when the product stores data.
-- Internal version, with the path to the owner. It forms annex A4.
-- Secrets, with where each key lives and who reads it. It forms annex A5.
+- Internal version, with the path to the owner. It forms annex A3.
+- Secrets, with where each key lives and who reads it. It forms annex A4.
 
 A source without access at writing time stays as "writer's memory, unconfirmed", with 1 row in section 8.
 

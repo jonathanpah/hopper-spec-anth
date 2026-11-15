@@ -17,8 +17,8 @@ Os 2 documentos saem em português, o idioma deste pacote. Se o proprietário es
 ## Regras que valem em todos os passos
 
 - **Corpo intocável.** O corpo entra inteiro e igual, montado pelo script `corpo.sh`, nunca redigitado. A única lacuna é `{{PROJETO}}`, na seção 0, que recebe o nome do produto. Resumo, reordenação, correção e "melhoria" do corpo ficam de fora. O corpo só muda por decisão expressa do proprietário, registrada na seção 2 da spec do produto com as palavras dele e a data.
-- **Toda função nos testes.** Cada área de requisitos da spec do produto vira assunto no anexo A3, mesmo quando os dados do proprietário ainda não mostram uso. Só o proprietário tira um assunto, e a saída fica registrada com as palavras dele.
-- **Spec curta.** Cada linha traz um fato, uma regra ou uma decisão do projeto. O anexo não repete o corpo, não explica o porquê das regras e não recapitula. O anexo tem até 70 linhas, do título `# Anexo` ao fim.
+- **Toda função nos testes.** Cada área de requisitos da spec do produto vira assunto no anexo A8, mesmo quando os dados do proprietário ainda não mostram uso. Só o proprietário tira um assunto, e a saída fica registrada com as palavras dele.
+- **Spec curta.** Cada linha traz um fato, uma regra ou uma decisão do projeto. O anexo não repete o corpo, não explica o porquê das regras e não recapitula. O anexo tem até 90 linhas, do título `# Anexo` ao fim.
 - **Nada inventado.** Todo fato tem fonte, que é o projeto, uma resposta do proprietário ou uma página oficial consultada, com a data. O que falta vira pergunta ou recebe uma destas 3 marcas.
   - **a medir.** Número ou tempo que só a execução mostra. Diga quando ele é medido.
   - **a construir.** Arquivo, comando, script ou lista que ainda não existe.
@@ -58,7 +58,7 @@ Pronto quando o proprietário respondeu e cada resposta está registrada, ou qua
 
 ### 4. Decidir o como
 
-As escolhas técnicas são suas, como arquitetura, linguagem, pastas, ferramentas de teste e o caminho da versão interna. Prefira o recurso nativo, com suporte ativo e com menos dependências. Cada escolha vira uma decisão de como na seção 7 da spec do produto, com fontes datadas. A decisão dos testes define os comandos do anexo A2.
+As escolhas técnicas são suas, como arquitetura, linguagem, pastas, ferramentas de teste e o caminho da versão interna. Prefira o recurso nativo, com suporte ativo e com menos dependências. Cada escolha vira uma decisão de como na seção 7 da spec do produto, com fontes datadas. A decisão dos testes define os comandos do anexo A8.
 
 Pronto quando cada requisito e cada seção do anexo que depende de técnica têm a decisão de como que os sustenta.
 

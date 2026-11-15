@@ -7,11 +7,11 @@ A Claude Code skill that writes the 2 specs for a software product that AI agent
 ## The 2 documents
 
 - **Product spec.** What the product does. It holds the objective, the owner's decisions, the glossary, the numbered requirements, each with what has to be true and how it is checked, what must never happen, what stays out, the how decisions, and the risks.
-- **Execution spec.** How the product is tested and fixed. It holds the general body, with sections 0 to 12, unchanged, and the project annex, with sections A1 to A7.
+- **Execution spec.** How the product is tested and fixed. It holds the general body, with sections 0 to 12, unchanged, and the project annex, with sections A1 to A9.
 
-The general body applies to any project and carries the sweep-and-rounds model. A broad, shallow sweep goes through the whole product. The problems are classified as big, medium, and small and fixed in that order, 1 at a time, with only each fix tested, and a new sweep checks each round. The body also defines the review of data fixes, the delivery at the end of each round, who decides, the format of messages to the owner, and fixing each error at its root cause, at a cost lower than the problem. It goes into each spec whole and identical, assembled by a script, and the skill checks the copy before delivering.
+The general body applies to any project and carries the sweep-and-rounds model. A broad, shallow sweep goes through the whole product. The problems are classified as big, medium, and small and fixed in that order, 1 at a time, with only each fix tested, and a new sweep checks each round. The body also defines the review of data fixes, the executor's mission, with a ceiling and a soft landing, the delivery at the end of each round, who decides, when to message the owner, the 45-minute ceiling of every execution, and fixing each error at its root cause, at a cost lower than the problem. It goes into each spec whole and identical, assembled by a script, and the skill checks the copy before delivering.
 
-The annex is written for each project. It covers the documents, the platforms and machines, the tested subjects, delivery, accounts and secrets, the AI models for each role, the sessions, and the starting numbers. Every product spec function becomes a test subject, and only the owner removes a subject. The annex has up to 70 lines. What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation".
+The annex is written for each project. It covers the documents, the platforms and machines, delivery, accounts and secrets, the AI models for each role, the sessions and the starting numbers, publication, the tests, with the tested subjects, and the checks outside the tests. Every product spec function becomes a test subject, and only the owner removes a subject. The annex has up to 90 lines. What the skill does not know becomes a question or is marked "to be measured", "to be built", or "pending confirmation".
 
 ## Scope
 
@@ -92,7 +92,7 @@ Claude reads the project, asks the missing questions, writes the 2 documents, an
 
 Check local changes and update the clone with `git pull --ff-only`. Then run `claude plugin marketplace update hopper-spec-anth` and `claude plugin update hopper-spec-anth@hopper-spec-anth`, and send `/reload-plugins` in open sessions. If you used the app upload, also update the account's package.
 
-Specs already written do not change with the update. Each spec records in its header the version of the skill that wrote it. Version 2.0.0 replaced the execution spec model with the sweep-and-rounds model and does not convert specs written before it. Version 2.1.0 adds section 12, errors and root causes, to the body.
+Specs already written do not change with the update. Each spec records in its header the version of the skill that wrote it. Version 2.0.0 replaced the execution spec model with the sweep-and-rounds model and does not convert specs written before it. Version 2.1.0 adds section 12, errors and root causes, to the body. Version 3.0.0 brings to the body the operators, the missions with a ceiling and a soft landing, the 30-minute sweep, and the 45-minute ceiling of every execution, and reorganizes the annex into A1 to A9, without converting specs written before it.
 
 To remove it, use `claude plugin uninstall hopper-spec-anth@hopper-spec-anth` and remove the account installation in the app, if one exists.
 

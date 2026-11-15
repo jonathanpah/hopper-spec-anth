@@ -55,7 +55,7 @@ Abra a seção com estas regras, adaptadas ao projeto.
 - Os testes levam o identificador no nome, como `test_RE_01_criarReceita`.
 - Cada requisito diz o que tem de ser verdade e como se confere.
 
-Agrupe os requisitos por área, em subseções numeradas, com esta tabela. Cada área é uma função do produto e vira assunto no anexo A3 da spec de execução.
+Agrupe os requisitos por área, em subseções numeradas, com esta tabela. Cada área é uma função do produto e vira assunto no anexo A8 da spec de execução.
 
 ### 4.1 Receitas
 
@@ -100,10 +100,10 @@ Decisões obrigatórias.
 
 - Arquitetura e linguagem.
 - Projeto e pastas.
-- Testes, com as ferramentas e os comandos de compilar, da vistoria e do pacote de testes de dados. Ela forma o anexo A2.
+- Testes, com as ferramentas e os comandos de compilar, da vistoria e do pacote de testes de dados. Ela forma o anexo A8.
 - Gravação dos dados e formato dos arquivos, quando o produto guarda dados.
-- Entrega interna, com o caminho até o proprietário. Ela forma o anexo A4.
-- Segredos, com onde cada chave fica e quem a lê. Ela forma o anexo A5.
+- Entrega interna, com o caminho até o proprietário. Ela forma o anexo A3.
+- Segredos, com onde cada chave fica e quem a lê. Ela forma o anexo A4.
 
 Fonte sem acesso na hora da escrita fica como "memória do redator, sem confirmação", com 1 linha na seção 8.
 

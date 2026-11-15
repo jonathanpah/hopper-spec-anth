@@ -23,13 +23,13 @@ Pule cada item que o pedido, o projeto ou uma resposta anterior já responde.
 7. **Envios sem pergunta.** A distribuição a pessoas de fora e a publicação ao público passam sempre pelo proprietário. Pergunte se algum envio de rotina pode sair sem pergunta.
 8. **Onde os testes rodam.** Quais computadores ou servidores existem para os testes, e em que horários cada um fica livre.
 9. **Conferências que não são função do produto.** Como leitor de tela, contraste de cores, tamanho mínimo de toque e comparação da tela com imagens de referência. Pergunte quais entram nos testes. Toda função do produto entra sempre, e só o proprietário tira um assunto.
-10. **Modelo de IA de cada papel.** Os papéis são orquestração, operação dos testes e da entrega, correções, revisão das correções de dados e triagem. O revisor de dados é de um modelo diferente do que escreveu a correção. Recomende pelos modelos que o ambiente oferece hoje, com o nome exato, e pergunte também quando o padrão é perguntado de novo.
+10. **Modelo de IA de cada papel.** Os papéis são orquestração, operação dos testes e da publicação, escrita de código, revisão das correções de dados e triagem. Na orquestração, pergunte o modelo e o esforço que ele quer agora, porque ele define sempre os 2. O revisor de dados é de um modelo diferente do que escreveu a correção. Recomende pelos modelos que o ambiente oferece hoje, com o nome exato, e pergunte também quando o padrão é perguntado de novo.
 11. **O que fica fora.** O que não entra na 1ª versão, para confirmar.
 
 ## O que nunca vira pergunta
 
 - **Escolha técnica.** Linguagem, arquitetura, pastas e ferramentas são decisões de como, suas, registradas na seção 7 da spec do produto.
-- **Decisão de execução.** Os casos da vistoria, a classificação dos problemas, a ordem das correções e as sessões são da orquestradora, pela seção 8 do corpo.
+- **Decisão de execução.** Os casos da vistoria, a ordem das correções e as sessões são da orquestradora, e a classificação dos problemas é das operadoras, pelas seções 4 e 8 do corpo.
 - **Número que só a execução mostra.** A duração da vistoria e do pacote de testes de dados ficam "a medir".
 - **Fato que se busca.** Versões, preços e regras de lojas ou serviços se conferem na documentação oficial.
 

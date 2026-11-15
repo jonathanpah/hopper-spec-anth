@@ -14,12 +14,12 @@ Confira os 2 documentos contra cada item, na ordem. O item que falha é corrigid
 
 ## Anexo
 
-3. As seções A1 a A7 estão presentes, com os títulos e a ordem de [anexo.md](anexo.md).
+3. As seções A1 a A9 estão presentes, com os títulos e a ordem de [anexo.md](anexo.md).
 4. Cada linha da tabela "O que o corpo deixa para o anexo", de [anexo.md](anexo.md), tem resposta na seção indicada.
-5. O A3 tem 1 assunto para cada área de requisitos da spec do produto, com os identificadores. Nenhum assunto saiu sem a palavra do proprietário, registrada na seção 2 da spec do produto.
+5. O A8 tem 1 assunto para cada área de requisitos da spec do produto, com os identificadores. Nenhum assunto saiu sem a palavra do proprietário, registrada na seção 2 da spec do produto.
 6. Todo número do anexo tem fonte, que é medida, resposta do proprietário ou página oficial com data, ou está marcado "a medir" com o momento da medida.
 7. Todo caminho e todo comando do anexo existem no projeto ou estão marcados "a construir".
-8. O A6 traz o modelo e o esforço de cada papel, com a fonte, e quando o padrão é perguntado de novo. O revisor de dados é de modelo diferente do que escreve as correções de dados.
+8. O A5 traz o modelo e o esforço de cada papel, com a fonte, e quando o padrão é perguntado de novo. Na orquestração, diz que o proprietário define sempre o modelo e o esforço e onde fica o último que ele definiu. O revisor de dados é de modelo diferente do que escreve as correções de dados.
 
 ## Spec do produto
 
@@ -32,7 +32,7 @@ Confira os 2 documentos contra cada item, na ordem. O item que falha é corrigid
 
 ## Os 2 documentos
 
-15. O anexo tem até 70 linhas, do título `# Anexo` ao fim. Nenhuma linha do anexo ou da spec do produto repete regra do corpo, explica o porquê de uma regra ou recapitula outra seção.
+15. O anexo tem até 90 linhas, do título `# Anexo` ao fim. Nenhuma linha do anexo ou da spec do produto repete regra do corpo, explica o porquê de uma regra ou recapitula outra seção.
 16. Cada decisão do proprietário está na seção 2 da spec do produto, com a data e as palavras dele. Cada recomendação adotada sem resposta está marcada "pendente de confirmação".
 17. Cada coisa tem 1 nome só, o mesmo nas 2 specs e no glossário.
 18. As fontes citadas são só o projeto, o proprietário e as páginas consultadas. A skill aparece só nos 2 cabeçalhos, com o nome e a versão.

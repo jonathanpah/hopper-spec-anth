@@ -1,7 +1,8 @@
 ## 0. What this is
 
-This is the only source of the rules for how {{PROJECT}} is tested and fixed. It holds by the owner's decision, from the approval recorded in the header. What the product does is in the product spec. What belongs only to this project is in the annex, at the end.
-The orchestrator is the AI session that leads the work. The executor is the session that writes each fix.
+This is the only source of the rules for how {{PROJECT}} is tested and fixed. It holds by the owner's decision, from the approval recorded in the header. What the product does is in the product spec.
+Sections 0 to 12 hold the general rules. What belongs only to this project is in the annex, at the end.
+The orchestrator is the AI session that leads the work. The operators are the AI sessions that run the tests and the publication. The executor is the AI session that writes the code. A mission is each task handed to the executor.
 A subject is a product function, with its test cases. A round is each set of fixes that follows a sweep.
 
 ## 1. The model, in 8 steps
@@ -11,7 +12,7 @@ A subject is a product function, with its test cases. A round is each set of fix
 3. Separate test failures from product problems. Classify the problems as big or blocking, medium, and small.
 4. Fix the big ones, 1 at a time. Test only that fix and move to the next.
 5. Fix the medium ones, the same way.
-6. Run a new sweep. If a big one appears, go back to step 4. If a medium one appears, go back to step 5 and repeat the sweep.
+6. Run a new sweep. If a big one appears, go back to step 4. A new medium one is fixed by step 5, without another sweep.
 7. With no big or medium ones, fix the small ones, 1 at a time.
 8. Close.
 
@@ -20,30 +21,41 @@ In every step, once 1 problem is fixed, only that fix is tested, by section 5. E
 ## 2. What the tests cover
 
 Every product function is covered, even when the owner's data does not show it in use yet. Only the owner removes or adds a subject.
-What the owner removed is in annex A3, with the date and the owner's words.
+The checks that left the tests and the ones kept in a cheap version are in annex A9.
 
 ## 3. The sweep
 
-The sweep is broad and shallow. It tests up to 3 cases of each subject on each platform, along the main path. It runs on all the platforms in annex A2 at the same time.
+The sweep is broad and shallow. It tests 1 case of each subject on each platform, along the main path. It runs on all the platforms in annex A2 at the same time.
 The data test package runs alongside it, without opening a screen.
-The target is up to 2 hours. The orchestrator chooses the cases and cuts whatever goes past the target, without asking the owner.
+The target is up to 30 minutes. The orchestrator chooses the cases and cuts whatever goes past the target, without asking the owner.
+The sweep and the runs that only measure are launched by the script in annex A2, without an AI mission. AI comes in to fix.
 
 ## 4. Classification
 
-A test failure with the product right is not a product problem. The test leaves the sweep and goes to a list. It is fixed only when the sweep needs it.
+A test failure with the product right is not a product problem. The test leaves the sweep and goes to the "Test failure, not a product failure" section of the sweep's problem list (annex A1). It is fixed only when the sweep needs it.
+A failure with an unknown cause gets only the measurement, with a ceiling of 15 minutes of machine time, before any fix. With no cause in that time, it goes to the end of the round and is not measured again in the same round.
 
 - **Big or blocking.** It prevents the use of a function, loses data or saves it wrong, presents a security flaw, or the product does not build or does not open.
 - **Medium.** It gets in the way of use, but there is a way around it.
 - **Small.** It is a detail.
 
-The orchestrator classifies. The owner can reclassify.
+The operators classify by these definitions, without taking the classification to the orchestrator. The orchestrator comes in only when the definitions do not settle the case. The owner can reclassify.
 
 ## 5. The test of each fix
 
 The cases that showed the problem run, plus all the other cases of the same subject, up to 15 minutes of machine time.
 Plus 2 cheap checks. Build on all platforms, always. Run the data test package when the fix touches data code.
-The test against a real external service, with the test account in annex A5, runs only when the fix changes the calls to that service.
+The test against the real external service (annex A8) runs only when the fix changes the calls to that service.
 Passed, next fix. Not passed in 2 attempts, the problem goes to the end of the round, with the measurement.
+Only a tree whose checksum matches the last build on all platforms goes into the trunk.
+The mission ends when it delivers the work or after the 2nd attempt that does not pass. The tests it leaves behind are canceled without asking the owner.
+The mission has 45 minutes of work, counted from the start, including the wait for a slot on the test machine. At 45 minutes, it stops starting new changes or tests and makes the soft landing, in up to 15 minutes, in these 4 steps.
+1. It cancels its own tests still in the queue.
+2. It saves the working tree as `partial.patch` in the run folder, with the new files.
+3. It writes `report.md` in the run folder, with 5 parts. They are what was done, what passed (with the run), what failed (with the run and the message), what is left, and the next step.
+4. It writes the delivery with "Status: partial" and returns the tree to the starting commit.
+
+At 60 minutes, the script that launched the mission stops the executor still running, with the tests it launched. A partial mission does not restart on its own. The orchestrator reads the report and decides whether it restarts from what was saved or the problem goes to the end of the round.
 
 ## 6. Review
 
@@ -51,36 +63,45 @@ Only a fix that touches data has 1 independent reviewer, from another AI model. 
 
 ## 7. Delivery
 
-At the end of each round, an internal version ships by the path in annex A4, without asking permission. A version for outside people and publication to the public only with the owner's yes, except what annex A4 records as already released by the owner.
-The full battery, with all the product's tests, and the battery against a real external service run 1 time per version.
+At the end of each round, an internal version ships, without asking permission. A version for outside people and publication to the public only with the owner's yes, except what annex A3 records as released by the owner. The channels for each case are in annex A3.
+Each publication follows annex A7. In it, the full battery runs 1 time per version, and the battery against the real external service runs when the version changes the calls to that service.
 
 ## 8. Who decides
 
-The owner decides what is external, irreversible, costs money, or changes what the product does. The owner also decides the list of tested subjects.
-The orchestrator decides everything else and reports afterward. It chooses the cases and the size of the sweep, the classification, the order of fixes, the sessions, and the models within the standard in annex A6. It does not take execution decisions to the owner.
+The owner decides what is external, irreversible, costs money, or changes what the product does. Only the owner changes the way of operating, which is what this spec and the annex define (section 11). The owner always sets the orchestrator's model and effort, and both vary. The last one the owner set holds, also in a replacement session opened because of context.
+The orchestrator decides everything else, without taking execution decisions to the owner, and reports only what changes what the owner sees or uses.
 
 ## 9. Messages to the owner
 
-Conclusion first. Only what is essential. Short sentences and paragraphs, 1 idea at a time, without jargon and without recapping.
-Real open items go at the end, numbered. Each one states what is open, the recommendation, and what is needed from the owner.
+The orchestrator sends the owner a message only with a decision for the owner, a blocker, or a delivery. Without one, it sends nothing, not even to say there is nothing to decide. It does not narrate progress or relay the operators' reports. The operators apply this spec without asking the orchestrator for an ok, including to merge into the trunk a fix that passed sections 5 and 6, and write to it only with a decision the spec does not settle or a blocker.
+
+Messages to the owner as a short list, without tables. In a decision, each option says in 1 line what it is and what changes.
+What only the owner does does not become our open item, and no one asks the owner to run a command. Everything that depends on the owner is asked at once. An instruction that changed goes in 1 complete final version.
+What the owner reports seeing is a fact to explain; the cause is still checked. The ceiling of a task is never told to the owner as a deadline.
 
 ## 10. What never changes
 
-- A change to data always gets the tests of section 5.
-- Passwords, keys, and real data stay out of the repository and the tests.
 - The tests do not use the owner's real data or real paid services.
-- The executor has no reason to read secrets. Only the official scripts in annex A5 read them. A key read outside them is replaced.
-- Nothing private goes into a public repository.
-- Whoever executes does not decide that the work is done.
+- The executor does not read the project's secrets (annex A4). Only the official scripts read them. The reading is checked after the mission, and a key that was read is replaced.
+- Whoever executes delivers facts and measurements and does not decide that the work is done or change the course.
+- No execution goes past 45 minutes, whether process, test, batch, battery, review, measurement, or script. It stops when it reaches 45 minutes, without a landing. The only exception is the executor's mission, with 45 minutes of work and up to 15 minutes of soft landing (section 5). Each execution has the ceiling in its own script. What needs more time is split into parts of up to 45 minutes.
 
 ## 11. How this document changes
 
 It changes only by the owner's decision, recorded. The change rewrites the point.
-It is updated whenever the right way to do something is learned or changes, at that moment, so the right way is not lost.
+The correction of a fact, such as a path, a script name, or a number, goes in at once. A new or changed rule goes in with the owner's ok.
 
 ## 12. Errors and root causes
 
-Each error is noted with its root cause. The fix attacks the cause, not the symptom.
+Each error is noted with its root cause in the mission report (section 5) or in the sweep's problem list (section 4). The fix attacks the cause, not the symptom.
 The cost of the fix has to be lower than the cost caused by the problem. If it is higher, the fix is revised until it costs less than the problem.
+The cost of a test also has to be lower than the cost of the problem it prevents. A test that costs more is removed, simplified, or replaced by a cheaper check.
 A failure does not justify a new process or a giant test. No error fix changes the model of section 1.
-The rules drawn from the project's errors go at the end of this section, with the date.
+
+General rules drawn from errors.
+
+- **Parallel within capacity.** The work runs in parallel as far as the test machine allows. The script that launches the runs waits for a free slot and free memory (annex A2).
+- **A test tool that fails.** The cost rule applies. A cheap fix, of minutes, goes in at the 1st failure. An expensive fix waits. The run is repeated, and the tool is fixed only if the failure comes back from the same cause.
+- **End of a step checked in the file.** When a step has an expected result in a file, the orchestrator waits for that file, not only for the other session's notice.
+
+The rules drawn from the project's errors go after these, with the date, by section 11.

@@ -14,12 +14,12 @@ Check the 2 documents against each item, in order. A failing item is fixed, and 
 
 ## Annex
 
-3. Sections A1 to A7 are present, with the headings and the order from [annex.md](annex.md).
+3. Sections A1 to A9 are present, with the headings and the order from [annex.md](annex.md).
 4. Each row of the table "What the body leaves to the annex", in [annex.md](annex.md), has an answer in the indicated section.
-5. A3 has 1 subject for each requirement area of the product spec, with the identifiers. No subject left without the owner's word, recorded in section 2 of the product spec.
+5. A8 has 1 subject for each requirement area of the product spec, with the identifiers. No subject left without the owner's word, recorded in section 2 of the product spec.
 6. Every number in the annex has a source, which is a measurement, an answer from the owner, or a dated official page, or is marked "to be measured" with the moment of measurement.
 7. Every path and every command in the annex exists in the project or is marked "to be built".
-8. A6 carries the model and effort of each role, with the source, and when the standard is asked again. The data reviewer comes from a different model than the one that writes the data fixes.
+8. A5 carries the model and effort of each role, with the source, and when the standard is asked again. For orchestration, it says that the owner always sets the model and the effort and where the last one the owner set is. The data reviewer comes from a different model than the one that writes the data fixes.
 
 ## Product spec
 
@@ -32,7 +32,7 @@ Check the 2 documents against each item, in order. A failing item is fixed, and 
 
 ## The 2 documents
 
-15. The annex has up to 70 lines, from the `# Annex` heading to the end. No line of the annex or the product spec repeats a body rule, explains why a rule exists, or recaps another section.
+15. The annex has up to 90 lines, from the `# Annex` heading to the end. No line of the annex or the product spec repeats a body rule, explains why a rule exists, or recaps another section.
 16. Each owner decision is in section 2 of the product spec, with the date and the owner's words. Each recommendation adopted without an answer is marked "pending confirmation".
 17. Each thing has 1 name only, the same in the 2 specs and in the glossary.
 18. The sources cited are only the project, the owner, and the pages consulted. The skill appears only in the 2 headers, with its name and version.
